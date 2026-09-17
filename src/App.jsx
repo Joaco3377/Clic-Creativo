@@ -125,13 +125,13 @@ const VALORES = [
 ];
 
 const SERVICES = [
-  { n: "01", t: "Gestión de redes", d: "Instagram, Facebook y TikTok. Ideamos, planificamos y publicamos contenido estratégico para que tu marca tenga presencia activa y alineada a sus objetivos.", tone: "beige", img: "Grilla de reels (Donata) — vertical", kind: "grid" },
-  { n: "02", t: "Contenido orgánico", d: "Fotos, videos, reels y piezas audiovisuales auténticas, pensadas para conectar con tu público y mostrar el valor real de tu empresa.", tone: "orange", img: "Persona filmando con celular — vertical", kind: "photo" },
+  { n: "01", t: "Gestión de redes", d: "Instagram, Facebook y TikTok. Ideamos, planificamos y publicamos contenido estratégico para que tu marca tenga presencia activa y alineada a sus objetivos.", tone: "beige", img: "Grilla de reels (Donata) — vertical", kind: "grid", src: "/gestion%20redes.jpg" },
+  { n: "02", t: "Contenido orgánico", d: "Fotos, videos, reels y piezas audiovisuales auténticas, pensadas para conectar con tu público y mostrar el valor real de tu empresa.", tone: "orange", img: "Persona filmando con celular — vertical", kind: "photo", src: "/contenido.jpg" },
   { n: "03", t: "Cobertura aérea con dron", d: "Imágenes y videos aéreos de alta calidad para mostrar proyectos, instalaciones y espacios desde una perspectiva diferencial.", tone: "blue", img: "VIDEO de dron — horizontal (pendiente)", kind: "video" },
-  { n: "04", t: "Fotografía profesional", d: "Producciones de productos, espacios, equipos y servicios. Imágenes que potencian tu identidad visual y transmiten confianza.", tone: "beige", img: "Platos / botella Seis Luces / uvas — vertical", kind: "photo" },
-  { n: "05", t: "Análisis de experiencia", d: "Analizamos tu empresa desde la mirada real del cliente. Te mostramos qué mejorar, cómo hacerlo y por qué ayuda a crecer.", tone: "orange", img: "Sin imagen aún", kind: "none" },
+  { n: "04", t: "Fotografía profesional", d: "Producciones de productos, espacios, equipos y servicios. Imágenes que potencian tu identidad visual y transmiten confianza.", tone: "beige", img: "Platos / botella Seis Luces / uvas — vertical", kind: "photo", src: "/fotografia.jpg" },
+  { n: "05", t: "Análisis de experiencia", d: "Analizamos tu empresa desde la mirada real del cliente. Te mostramos qué mejorar, cómo hacerlo y por qué ayuda a crecer.", tone: "orange", img: "Sin imagen aún", kind: "none", src: "/analisis%20de%20experiencia.jpg" },
   { n: "06", t: "Cobertura de eventos", d: "Registramos eventos corporativos y sociales con contenido dinámico para difusión y posicionamiento de marca.", tone: "blue", img: "Sin imagen aún", kind: "none" },
-  { n: "07", t: "Pauta publicitaria", d: "Gestión y optimización de campañas en Meta Ads: segmentación, monitoreo y ajuste según rendimiento.", tone: "beige", img: "Sin imagen aún", kind: "none" },
+  { n: "07", t: "Pauta publicitaria", d: "Gestión y optimización de campañas en Meta Ads: segmentación, monitoreo y ajuste según rendimiento.", tone: "beige", img: "Sin imagen aún", kind: "none", src: "/Pauta%20Publicitaria.webp" },
   { n: "08", t: "Manual de marca", d: "Desarrollamos tu identidad visual completa: paleta, tipografías, usos del logo y criterios de aplicación.", tone: "orange", img: "Sin imagen aún", kind: "none" },
 ];
 
@@ -637,24 +637,28 @@ function ServiceStripe({ s, i }) {
 }
 
 function ImgPlaceholder({ s }) {
-  const vertical = s.kind === "photo" || s.kind === "grid";
   const isVideo = s.kind === "video";
   const none = s.kind === "none";
+  const vertical = s.kind === "photo" || s.kind === "grid" || (s.src && !isVideo);
   return (
     <div style={{
       width: "100%", aspectRatio: vertical ? "4 / 5" : "16 / 10",
       borderRadius: 20, overflow: "hidden", position: "relative",
-      background: none ? "repeating-linear-gradient(45deg, #EDE5D8, #EDE5D8 12px, #e4dccd 12px, #e4dccd 24px)" : "#123C4D",
+      background: none && !s.src ? "repeating-linear-gradient(45deg, #EDE5D8, #EDE5D8 12px, #e4dccd 12px, #e4dccd 24px)" : "#123C4D",
       border: "1.5px solid rgba(18,60,77,.15)",
-      display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", padding: 24,
+      display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", padding: s.src ? 0 : 24,
     }}>
-      {isVideo && (
-        <div style={{ position: "absolute", top: 14, left: 14, background: "#F0743A", color: "#EDE5D8", fontSize: 12, fontWeight: 700, padding: "5px 12px", borderRadius: 999 }}>▶ VIDEO</div>
-      )}
-      <div style={{ color: none ? "#123C4D" : "#EDE5D8", opacity: none ? .6 : .9 }}>
-        <div style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 700, fontSize: 15 }}>{none ? "Imagen pendiente" : "IMAGEN"}</div>
-        <div style={{ fontSize: 13, marginTop: 8, lineHeight: 1.4 }}>{s.img}</div>
-      </div>
+      {s.src
+        ? <img src={s.src} alt={s.t} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+        : (<>
+            {isVideo && (
+              <div style={{ position: "absolute", top: 14, left: 14, background: "#F0743A", color: "#EDE5D8", fontSize: 12, fontWeight: 700, padding: "5px 12px", borderRadius: 999 }}>▶ VIDEO</div>
+            )}
+            <div style={{ color: none ? "#123C4D" : "#EDE5D8", opacity: none ? .6 : .9 }}>
+              <div style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 700, fontSize: 15 }}>{none ? "Imagen pendiente" : "IMAGEN"}</div>
+              <div style={{ fontSize: 13, marginTop: 8, lineHeight: 1.4 }}>{s.img}</div>
+            </div>
+          </>)}
     </div>
   );
 }
