@@ -110,8 +110,8 @@ const WHATSAPP = "5492646608412"; // 264 660 8412
 const waLink = (msg) => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
 
 const FOUNDERS = [
-  { name: "Candela Coll", role: "Cofundadora · Comunicación & Estrategia", img: "Foto Candela — retrato vertical" },
-  { name: "Clara Avellaneda", role: "Cofundadora · Contenido & Producción", img: "Foto Clara — retrato vertical" },
+  { name: "Candela Coll", role: "Cofundadora · Comunicación & Estrategia", img: "/Cande.jpg" },
+  { name: "Clara Avellaneda", role: "Cofundadora · Contenido & Producción", img: "/Clari.jpg" },
 ];
 
 const MISION = "Conectar marcas con personas a través de ideas creativas ejecutadas con precisión profesional — en redes sociales, contenido, campañas y producción audiovisual.";
@@ -845,13 +845,17 @@ function FounderCard({ f, i }) {
       opacity: seen ? 1 : 0, transform: seen ? "none" : "translateY(24px)",
       transition: `opacity .6s ease ${i * 0.12}s, transform .6s cubic-bezier(.22,1,.36,1) ${i * 0.12}s`,
     }}>
-      {/* foto redonda placeholder */}
+            {/* foto redonda: si img es una ruta muestra la foto; si no, el texto */}
       <div style={{
-        width: 120, height: 120, borderRadius: 999, flexShrink: 0,
+        width: 120, height: 120, borderRadius: 999, flexShrink: 0, overflow: "hidden",
         background: "#123C4D", color: "#EDE5D8", border: "3px solid #F0743A",
         display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center",
-        fontSize: 11, fontWeight: 600, padding: 12, lineHeight: 1.3,
-      }}>{f.img}</div>
+        fontSize: 11, fontWeight: 600, lineHeight: 1.3,
+      }}>
+        {f.img && f.img.startsWith("/")
+          ? <img src={f.img} alt={f.name} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+          : <span style={{ padding: 12 }}>{f.img}</span>}
+      </div>
       <div>
         <h3 style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 700, fontSize: 24, margin: 0 }}>{f.name}</h3>
         <p style={{ fontSize: 15, color: "#F0743A", fontWeight: 600, marginTop: 6 }}>{f.role}</p>
