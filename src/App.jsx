@@ -718,7 +718,7 @@ function ClientesPage({ go }) {
       {/* CTA */}
       <section style={{ background: "#EDE5D8", color: "#123C4D", padding: "clamp(70px,10vw,120px) clamp(18px,6vw,90px)", textAlign: "center" }}>
         <h2 style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 800, fontSize: "clamp(28px,5vw,52px)", lineHeight: 1.05, letterSpacing: "-.02em", margin: 0 }}>
-          ¿Tu marca es la próxima?
+          Tu marca es la próxima
         </h2>
         <a href={waLink("Hola Click Creativo, quiero sumar mi marca")} target="_blank" rel="noreferrer" style={{ ...btnPrimary, marginTop: 30 }}>Escribinos por WhatsApp</a>
       </section>
