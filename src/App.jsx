@@ -487,19 +487,41 @@ function ServiceCard({ s, i }) {
     </div>
   );
 }
+function CintaLogo({ c }) {
+  const [intento, setIntento] = useState(0);
+  const base = CLIENT_LOGOS[c];
+  const src = base && intento < LOGO_EXTS.length
+    ? encodeURI("/" + base + LOGO_EXTS[intento])
+    : null;
+
+  return (
+    <div style={{
+      flexShrink: 0, width: 170, height: 90, borderRadius: 14,
+      background: "#FFFFFF", border: "1.5px solid rgba(18,60,77,.12)",
+      display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center",
+      padding: "0 16px", color: "#123C4D",
+      fontFamily: "'Poppins',sans-serif", fontWeight: 600, fontSize: 14,
+    }}>
+      {src ? (
+        <img
+          key={src}
+          src={src}
+          alt={c}
+          onError={() => setIntento((n) => n + 1)}
+          style={{ maxWidth: "85%", maxHeight: "65%", objectFit: "contain", display: "block" }}
+        />
+      ) : (
+        c
+      )}
+    </div>
+  );
+}
+
 function MarcasCinta({ go }) {
-  // Cinta transportadora: dos mitades iguales que se deslizan en loop.
-  // Cada "logo" es un placeholder; en Lovable van las imágenes reales.
   const row = (dir) => (
     <div className={`marquee-track ${dir}`} style={{ display: "flex", gap: 24, width: "max-content" }}>
       {[...CLIENTS, ...CLIENTS].map((c, i) => (
-        <div key={dir + i} style={{
-          flexShrink: 0, width: 170, height: 90, borderRadius: 14,
-          background: "#FFFFFF", border: "1.5px solid rgba(18,60,77,.12)",
-          display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center",
-          padding: "0 16px", color: "#123C4D",
-          fontFamily: "'Poppins',sans-serif", fontWeight: 600, fontSize: 14,
-        }}>{c}</div>
+        <CintaLogo key={dir + i} c={c} />
       ))}
     </div>
   );
@@ -513,7 +535,6 @@ function MarcasCinta({ go }) {
           Más de 20 marcas de San Juan y la región ya hicieron clic con nosotras.
         </p>
       </div>
-      {/* cintas */}
       <div style={{ marginTop: 50, display: "flex", flexDirection: "column", gap: 24 }}>
         <div className="marquee" style={{ overflow: "hidden" }}>{row("to-right")}</div>
       </div>
