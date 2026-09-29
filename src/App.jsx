@@ -23,7 +23,7 @@ function ClickLogo({ size = 120, split = 0, colorL = "#123C4D", colorR = "#F0743
   const vbW = 200 + padX * 2, vbH = 135 + padY * 2;
   const h = size * (vbH / vbW);
   return (
-    <svg width={size} height={h} viewBox={`0 0 ${vbW} ${vbH}`} aria-label="Click Creativo" style={{ display: "block", overflow: "visible" }}>
+    <svg width={size} height={h} viewBox={`0 0 ${vbW} ${vbH}`} aria-label="Clic Creativo" style={{ display: "block", overflow: "visible" }}>
       <g transform={`translate(${padX} ${padY})`}>
         {/* gancho izquierdo — se aleja hacia arriba-izquierda al separarse */}
         <g style={{
