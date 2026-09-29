@@ -730,44 +730,48 @@ function ClientesGrid() {
   );
 }
 
-// Poné entre las comillas la ruta de cada logo. Si queda vacío, se muestra el nombre.
+// Nombre del cliente → nombre del archivo en /public (sin importar la extensión)
 const CLIENT_LOGOS = {
-  "Donata del Desierto": "",
-  "Punto Donata": "",
+  "Donata del Desierto": "Donata del Desierto. Png",
+  "Punto Donata": "Punto Donata",
   "La Vereda Donata": "",
-  "Refugio Donata": "",
-  "Club Andino Mercedario": "",
-  "Coldwell Banker Impacto Pro": "",
-  "Seis Luces": "",
-  "El Retorno": "",
-  "Jarana Sanguchería": "",
-  "Andalué": "",
-  "Vasco Pescadería": "",
-  "INAR Energía Solar": "",
-  "Parador Corona": "",
-  "ARG Carpas": "",
-  "GEG Servicios": "",
-  "Peñón del Águila": "",
-  "Plug & Play": "",
-  "Wabi Sabi": "",
-  "Belle Pur": "",
-  "Aurae Centro Holístico": "",
-  "Session Pro": "",
-  "Quintana House": "",
-  "Black Pear": "",
-  "Beable": "",
-  "GR Consultora": "",
+  "Refugio Donata": "Refugio Donata. png",
+  "Club Andino Mercedario": "CAM",
+  "Coldwell Banker Impacto Pro": "CB Impacto Pro",
+  "Seis Luces": "Seis luces png",
+  "El Retorno": "El retorno",
+  "Jarana Sanguchería": "Jarana. PNG",
+  "Andalué": "Andalue. png",
+  "Vasco Pescadería": "Vasco",
+  "INAR Energía Solar": "inar",
+  "Parador Corona": "Parador",
+  "ARG Carpas": "ARG",
+  "GEG Servicios": "GEG",
+  "Peñón del Águila": "Peñón del Águila",
+  "Plug & Play": "Plug & Play. png",
+  "Wabi Sabi": "Wabi",
+  "Belle Pur": "Belle pur",
+  "Aurae Centro Holístico": "Aurae",
+  "Session Pro": "Session Pro",
+  "Quintana House": "Quintana House",
+  "Black Pear": "Black Pear. PNG",
+  "Beable": "BeAble",
+  "GR Consultora": "GR Consultora. Png",
   "Nutricionista Gabriela Badías": "",
-  "Doble Pe": "",
-  "Agencia LJ": "",
+  "Doble Pe": "Doble pe",
+  "Agencia LJ": "L&J",
 };
+
+const LOGO_EXTS = ["", ".png", ".jpg", ".jpeg", ".svg", ".webp", ".PNG", ".JPG", ".JPEG"];
 
 function ClientLogo({ c, i }) {
   const [ref, seen] = useInView({ threshold: 0.1 });
   const [hov, setHov] = useState(false);
-  const [fallo, setFallo] = useState(false);
-  const logo = CLIENT_LOGOS[c];
-  const mostrarLogo = logo && !fallo;
+  const [intento, setIntento] = useState(0);
+  const base = CLIENT_LOGOS[c];
+  const src = base && intento < LOGO_EXTS.length
+    ? encodeURI("/" + base + LOGO_EXTS[intento])
+    : null;
 
   return (
     <div
@@ -786,11 +790,12 @@ function ClientLogo({ c, i }) {
         boxShadow: hov ? "0 14px 30px -14px rgba(18,60,77,.4)" : "none",
       }}
     >
-      {mostrarLogo ? (
+      {src ? (
         <img
-          src={logo}
+          key={src}
+          src={src}
           alt={c}
-          onError={() => setFallo(true)}
+          onError={() => setIntento((n) => n + 1)}
           style={{ maxWidth: "80%", maxHeight: "70%", objectFit: "contain", display: "block" }}
         />
       ) : (
@@ -799,7 +804,6 @@ function ClientLogo({ c, i }) {
     </div>
   );
 }
-
 
 /* ===================== PÁGINA: NOSOTROS ===================== */
 function NosotrosPage({ go }) {
