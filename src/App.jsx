@@ -522,7 +522,7 @@ function MarcasCinta({ go }) {
       <div style={{ marginTop: 50, display: "flex", flexDirection: "column", gap: 24 }}>
         <div className="marquee" style={{ overflow: "hidden" }}>{row("to-right")}</div>
       </div>
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(18px,6vw,90px)", marginTop: 50 }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(18px,6vw,90px)", marginTop: 50 , textAlign: "center" }}>
         <button onClick={() => go("clientes")} style={{ ...btnPrimary, cursor: "pointer" }}>Ver todos los clientes y testimonios</button>
       </div>
     </section>
