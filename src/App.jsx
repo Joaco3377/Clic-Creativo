@@ -563,6 +563,7 @@ function Testimonial({ t, i }) {
 
 function Contacto() {
   return (
+    </>
     <section id="contacto" style={{ background: "#123C4D", color: "#EDE5D8", padding: "clamp(80px,12vw,150px) clamp(18px,6vw,90px)", textAlign: "center" }}>
       <div style={{ maxWidth: 820, margin: "0 auto" }}>
         <div style={{ display: "inline-block", marginBottom: 26 }}>
@@ -576,7 +577,9 @@ function Contacto() {
           <a href="mailto:clickcreativo.cm@gmail.com" style={btnGhostLight}>clickcreativo.cm@gmail.com</a>
         </div>
       </div>
-    </section>
+        </section>
+    <ContactoWhatsApp />
+    </>
   );
 }
 
