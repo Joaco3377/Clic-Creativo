@@ -440,14 +440,25 @@ function ServiciosPreview({ go }) {
 }
 
 function ServiceCard({ s, i }) {
-  const [ref, seen] = useInView({ threshold: 0.15 });
+  const primeros = i < 3; // servicios 1, 2 y 3
+  const [ref, seen] = useInView({ threshold: primeros ? 0.5 : 0.15 });
   const [hov, setHov] = useState(false);
+  const [entro, setEntro] = useState(!primeros);
+  const demora = 0.2 + i * 0.18; // aparecen uno detrás del otro
+
+  useEffect(() => {
+    if (!primeros || !seen) return;
+    const t = setTimeout(() => setEntro(true), (demora + 1) * 1000);
+    return () => clearTimeout(t);
+  }, [seen]);
+
   const palette = {
     beige: { bg: "#EDE5D8", fg: "#123C4D", accent: "#F0743A", border: "#123C4D" },
-    orange: { bg: "#F0743A", fg: "#EDE5D8", accent: "#123C4D", border: "#F0743A" },
+    orange: { bg: "#F0743A", fg: "#123C4D", accent: "#EDE5D8", border: "#F0743A" },
     blue: { bg: "#123C4D", fg: "#EDE5D8", accent: "#F0743A", border: "#123C4D" },
   }[s.tone];
   const isBeige = s.tone === "beige";
+
   return (
     <div
       ref={ref}
@@ -459,20 +470,19 @@ function ServiceCard({ s, i }) {
         borderRadius: 20, padding: "34px 30px 30px", minHeight: 230,
         display: "flex", flexDirection: "column",
         opacity: seen ? 1 : 0,
-        transform: seen ? (hov ? "translateY(-6px) scale(1)" : "none") : "translateY(34px) scale(.97)",
-        transition: seen
-          ? `opacity .6s ease ${(i % 3) * 0.1}s, transform .35s ease`
-          : "opacity .6s ease, transform .6s ease",
+        transform: seen
+          ? (hov ? "translateY(-6px) scale(1)" : "none")
+          : (primeros ? "translateY(90px) scale(.9)" : "translateY(34px) scale(.97)"),
+        transition: primeros && !entro
+          ? `opacity .8s ease ${demora}s, transform 1s cubic-bezier(.34,1.56,.64,1) ${demora}s`
+          : seen
+            ? `opacity .6s ease ${(i % 3) * 0.1}s, transform .35s ease`
+            : "opacity .6s ease, transform .6s ease",
         boxShadow: hov ? "0 18px 40px -18px rgba(18,60,77,.5)" : "none",
       }}
     >
       <div style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 800, fontSize: 15, color: palette.accent, letterSpacing: ".1em" }}>{s.n}</div>
-      <h3 style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 700, fontSize: 23, margin: "10px 0 12px", lineHeight: 1.15 }}>{s.t}</h3>
-      <p style={{ fontSize: 15, lineHeight: 1.55, opacity: .88, flexGrow: 1 }}>{s.d}</p>
-    </div>
-  );
-}
-
+      <h3 style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 700, fontSize: 23, margin: "10px 0 12px",
 function MarcasCinta({ go }) {
   // Cinta transportadora: dos mitades iguales que se deslizan en loop.
   // Cada "logo" es un placeholder; en Lovable van las imágenes reales.
