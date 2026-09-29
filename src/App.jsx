@@ -861,7 +861,7 @@ const LOGO_ZOOM = {
   "Punto Donata": 2.5,
   "Refugio Donata": 1.8,
   "Club Andino Mercedario": 1.4,
-  "Coldwell Banker Impacto Pro": 1.8,
+  "Coldwell Banker Impacto Pro": 2.1,
   "El Retorno": 2.5,
   "Andalué": 1.4,
   "Vasco Pescadería": 2,
@@ -874,11 +874,11 @@ const LOGO_ZOOM = {
   "Belle Pur": 2.2,
   "Aurae Centro Holístico": 1.8,
   "Quintana House": 1.5,
+  "Peñón del Águila": 3,
 };
 
 // Fondo especial para logos blancos
 const LOGO_FONDO = {
-   "Doble Pe": "#F0743A",
 };
 
 const LOGO_EXTS = ["", ".png", ".jpg", ".jpeg", ".svg", ".webp", ".PNG", ".JPG", ".JPEG"];
