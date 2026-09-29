@@ -659,26 +659,11 @@ function ContactoWhatsApp() {
 
 function Contacto() {
   return (
-    <>
-    <section id="contacto" style={{ background: "#123C4D", color: "#EDE5D8", padding: "clamp(80px,12vw,150px) clamp(18px,6vw,90px)", textAlign: "center" }}>
-      <div style={{ maxWidth: 820, margin: "0 auto" }}>
-        <div style={{ display: "inline-block", marginBottom: 26 }}>
-          <ClickLogo size={80} split={0} colorL="#EDE5D8" colorR="#F0743A" />
-        </div>
-        <h2 style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 800, fontSize: "clamp(34px,6vw,64px)", lineHeight: 1, letterSpacing: "-.02em", margin: 0 }}>
-          Potenciá tu marca<br />en el mundo digital
-        </h2>
-        <div style={{ display: "flex", gap: 18, justifyContent: "center", marginTop: 40, flexWrap: "wrap" }}>
-          <a href={waLink("Hola Click Creativo, quiero impulsar mi marca")} target="_blank" rel="noreferrer" style={btnPrimary}>Escribinos por WhatsApp</a>
-          <a href="mailto:clickcreativo.cm@gmail.com" style={btnGhostLight}>clickcreativo.cm@gmail.com</a>
-        </div>
-      </div>
-        </section>
-    <ContactoWhatsApp />
-    </>
+    <div id="contacto">
+      <ContactoWhatsApp />
+    </div>
   );
 }
-
 /* ===================== PÁGINA: SERVICIOS ===================== */
 function ServiciosPage({ go }) {
   return (
