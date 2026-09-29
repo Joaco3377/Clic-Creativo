@@ -1,20 +1,20 @@
 import React, { useState, useEffect, useRef } from "react";
 
 /* ============================================================
-   Clic CREATIVO — Prototipo de sitio
+   CLICK CREATIVO — Prototipo de sitio
    Paleta: azul petróleo #123C4D · naranja #F0743A · beige #EDE5D8 · negro #1A1A1A
    Tipografías: Poppins (display) + Inter (texto)
    Concepto: "el clic" = movimiento + conexión. La intro es el logo
-   (dos mitades) que se unen al hacer Clic. Ese es EL momento animado.
+   (dos mitades) que se unen al hacer click. Ese es EL momento animado.
    ============================================================ */
 
-// ---- Logo real de Clic Creativo, vectorizado del original ----
+// ---- Logo real de Click Creativo, vectorizado del original ----
 // Dos ganchos entrelazados (path izquierdo azul + path derecho naranja).
 // viewBox 0 0 200 135. En estado unido forman el eslabón; con split se separan.
 const HOOK_L = "M 59.65,0.21 C 55.14,0.72 50.29,2.30 43.47,5.51 C 27.12,13.18 13.48,26.25 7.00,40.23 C -3.26,62.50 -2.19,87.47 9.87,105.67 C 21.37,123.04 37.89,132.50 59.36,134.08 C 64.77,134.48 74.36,133.63 80.50,132.28 C 99.55,127.94 116.86,114.24 128.81,94.06 C 131.46,89.61 133.99,83.30 133.37,82.73 C 132.70,82.06 103.89,69.60 103.56,69.77 C 103.33,69.94 102.99,70.84 102.77,71.74 C 102.26,74.05 97.64,81.04 94.26,84.48 C 86.70,92.32 76.56,95.36 65.73,93.10 C 58.29,91.53 48.99,84.25 45.16,77.04 C 40.54,68.36 40.54,57.09 45.10,48.52 C 48.94,41.36 59.76,33.24 67.31,32.00 C 70.81,31.38 71.43,31.16 71.20,30.42 C 71.09,30.03 69.45,23.15 67.48,15.09 C 65.56,7.03 63.87,0.27 63.65,0.10 C 63.48,-0.07 61.67,-0.01 59.65,0.21 Z";
 const HOOK_R = "M 126.16,1.28 C 119.28,2.41 111.17,5.00 105.58,7.88 C 88.73,16.39 75.54,32.45 68.16,53.37 C 66.24,58.72 64.94,65.43 65.68,66.16 C 66.13,66.61 70.64,67.63 91.32,71.97 L 97.36,73.21 L 98.03,70.11 C 99.44,62.95 103.61,55.51 109.14,49.98 C 116.97,42.20 131.74,40.12 142.34,45.42 C 155.08,51.73 161.78,64.19 159.92,77.94 C 158.57,87.75 150.62,97.78 140.42,102.63 L 136.98,104.27 L 138.33,107.03 C 139.07,108.55 142.22,115.03 145.32,121.46 C 148.37,127.94 151.13,133.18 151.36,133.18 C 153.05,133.13 159.19,130.48 162.74,128.28 C 176.33,119.88 188.67,106.24 194.25,93.39 C 198.31,84.09 200.00,75.80 200.00,65.26 C 199.94,45.30 193.41,29.18 180.50,17.12 C 165.50,3.14 147.01,-2.27 126.16,1.28 Z";
 
-function ClicLogo({ size = 120, split = 0, colorL = "#123C4D", colorR = "#F0743A", mono }) {
+function ClickLogo({ size = 120, split = 0, colorL = "#123C4D", colorR = "#F0743A", mono }) {
   // split: 0 = logo real entrelazado; >0 = ganchos separados en diagonal ("antes")
   const c = mono || null;
   // viewBox con padding simétrico (px) para que al separarse el logo no se
@@ -23,7 +23,7 @@ function ClicLogo({ size = 120, split = 0, colorL = "#123C4D", colorR = "#F0743A
   const vbW = 200 + padX * 2, vbH = 135 + padY * 2;
   const h = size * (vbH / vbW);
   return (
-    <svg width={size} height={h} viewBox={`0 0 ${vbW} ${vbH}`} aria-label="Clic Creativo" style={{ display: "block", overflow: "visible" }}>
+    <svg width={size} height={h} viewBox={`0 0 ${vbW} ${vbH}`} aria-label="Click Creativo" style={{ display: "block", overflow: "visible" }}>
       <g transform={`translate(${padX} ${padY})`}>
         {/* gancho izquierdo — se aleja hacia arriba-izquierda al separarse */}
         <g style={{
@@ -171,32 +171,32 @@ export default function App() {
 
 /* ===================== INTRO ===================== */
 function Intro({ onEnter }) {
-  const [Cliced, setCliced] = useState(false);
+  const [clicked, setClicked] = useState(false);
   const handle = () => {
-    if (Cliced) return;
-    setCliced(true);
+    if (clicked) return;
+    setClicked(true);
     setTimeout(onEnter, 850); // deja terminar la unión + fade
   };
   return (
     <div
-      onClic={handle}
+      onClick={handle}
       className="intro"
       style={{
         position: "fixed", inset: 0, zIndex: 50,
         display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
         background: "#EDE5D8", cursor: "pointer",
-        opacity: Cliced ? 0 : 1, transition: "opacity .5s ease .35s",
+        opacity: clicked ? 0 : 1, transition: "opacity .5s ease .35s",
       }}
     >
       <div style={{ textAlign: "center" }}>
         <div style={{ marginBottom: 34, display: "flex", justifyContent: "center" }}>
-          <ClicLogo size={160} split={Cliced ? 0 : 40} colorL="#123C4D" colorR="#F0743A" />
+          <ClickLogo size={160} split={clicked ? 0 : 40} colorL="#123C4D" colorR="#F0743A" />
         </div>
         <h1 style={{
           fontFamily: "'Poppins', sans-serif", fontWeight: 800, fontSize: "clamp(38px,7vw,68px)",
           lineHeight: .92, letterSpacing: "-.02em", margin: 0,
         }}>
-          <span style={{ color: "#123C4D" }}>Clic</span>{" "}
+          <span style={{ color: "#123C4D" }}>click</span>{" "}
           <span style={{ color: "#F0743A" }}>creativo</span>
         </h1>
         <p style={{ fontSize: 15, letterSpacing: ".18em", textTransform: "uppercase", marginTop: 14, color: "#123C4D", opacity: .7 }}>
@@ -204,7 +204,7 @@ function Intro({ onEnter }) {
         </p>
 
         <button
-          onClic={(e) => { e.stopPropagation(); handle(); }}
+          onClick={(e) => { e.stopPropagation(); handle(); }}
           className="pulse"
           style={{
             marginTop: 46, border: "none", cursor: "pointer",
@@ -216,7 +216,7 @@ function Intro({ onEnter }) {
         >
           <span style={{
             width: 12, height: 12, borderRadius: 999, background: "#EDE5D8",
-            boxShadow: Cliced ? "0 0 0 8px rgba(237,229,216,.35)" : "none", transition: "box-shadow .3s",
+            boxShadow: clicked ? "0 0 0 8px rgba(237,229,216,.35)" : "none", transition: "box-shadow .3s",
           }} />
           Hacé clic para entrar
         </button>
@@ -279,18 +279,18 @@ function Header({ route, go }) {
       background: dark ? "rgba(18,60,77,.97)" : "transparent",
       transition: "background .3s",
     }}>
-      <div onClic={() => go("home")} style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }}>
-        <ClicLogo size={34} split={0} colorL={dark ? "#EDE5D8" : "#123C4D"} colorR="#F0743A" />
+      <div onClick={() => go("home")} style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }}>
+        <ClickLogo size={34} split={0} colorL={dark ? "#EDE5D8" : "#123C4D"} colorR="#F0743A" />
         <span style={{
           fontFamily: "'Poppins',sans-serif", fontWeight: 700, fontSize: 18,
           color: dark ? "#EDE5D8" : "#123C4D",
-        }}>Clic creativo</span>
+        }}>click creativo</span>
       </div>
       <nav style={{ display: "flex", gap: 28, alignItems: "center" }} className="nav-desktop">
         {items.map((it) => {
           const active = (route === "servicios" && it.to === "servicios") || (route === "nosotros" && it.to === "nosotros") || (route === "clientes" && it.to === "clientes");
           return (
-            <button key={it.label} onClic={() => nav(it)} style={{
+            <button key={it.label} onClick={() => nav(it)} style={{
               background: "none", border: "none", cursor: "pointer", padding: 0,
               fontFamily: "'Inter',sans-serif", fontSize: 14, fontWeight: 500,
               color: dark ? "#EDE5D8" : "#123C4D", opacity: active ? 1 : .9,
@@ -318,7 +318,7 @@ function Hero({ go }) {
     }}>
       {/* marca de agua: logo gigante */}
             <div style={{ position: "absolute", right: "3%", top: "50%", transform: "translateY(-50%)", opacity: on ? .9 : 0, transition: "opacity 1.2s ease .4s" }}>
-        <ClicLogo size={560} split={0} colorL="#123C4D" colorR="#F0743A" />
+        <ClickLogo size={560} split={0} colorL="#123C4D" colorR="#F0743A" />
       </div>
       <div style={{ position: "relative", maxWidth: 1100 }}>
         <p style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 600, fontSize: 15, letterSpacing: ".22em", textTransform: "uppercase", color: "#F0743A", marginBottom: 20, ...step(0.1) }}>
@@ -336,7 +336,7 @@ function Hero({ go }) {
         </p>
         <div style={{ display: "flex", gap: 16, marginTop: 40, flexWrap: "wrap", ...step(0.52) }}>
           <a href="#contacto" style={btnPrimary}>Impulsá tu marca</a>
-          <button onClic={() => go("servicios")} style={{ ...btnGhost, cursor: "pointer" }}>Ver servicios</button>
+          <button onClick={() => go("servicios")} style={{ ...btnGhost, cursor: "pointer" }}>Ver servicios</button>
         </div>
       </div>
     </section>
@@ -377,7 +377,7 @@ function NosotrasPreview({ go }) {
             comunicación más profesional, cercana y efectiva. Trabajamos con más de 20 marcas de
             distintos rubros, adaptando cada estrategia a sus objetivos.
           </p>
-          <button onClic={() => go("nosotros")} style={{
+          <button onClick={() => go("nosotros")} style={{
             marginTop: 30, background: "#123C4D", color: "#EDE5D8", border: "none", cursor: "pointer",
             fontFamily: "'Poppins',sans-serif", fontWeight: 700, fontSize: 16, padding: "15px 32px", borderRadius: 999,
             opacity: seen ? 1 : 0, transition: "opacity .6s ease .4s",
@@ -398,7 +398,7 @@ function Concepto() {
     <section ref={ref} style={{ background: "#123C4D", color: "#EDE5D8", padding: "clamp(80px,12vw,150px) clamp(18px,6vw,90px)" }}>
       <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
         <div style={{ display: "inline-block", marginBottom: 30 }}>
-          <ClicLogo size={90} split={seen ? 0 : 30} colorL="#EDE5D8" colorR="#F0743A" />
+          <ClickLogo size={90} split={seen ? 0 : 30} colorL="#EDE5D8" colorR="#F0743A" />
         </div>
         <p style={{
           fontFamily: "'Poppins',sans-serif", fontWeight: 700, fontSize: "clamp(24px,4vw,40px)", lineHeight: 1.3, letterSpacing: "-.01em",
@@ -432,7 +432,7 @@ function ServiciosPreview({ go }) {
           {SERVICES.map((s, i) => <ServiceCard key={s.n} s={s} i={i} />)}
         </div>
         <div style={{ textAlign: "center", marginTop: 50 }}>
-          <button onClic={() => go("servicios")} style={{ ...btnPrimary, cursor: "pointer" }}>Ver todos los servicios en detalle</button>
+          <button onClick={() => go("servicios")} style={{ ...btnPrimary, cursor: "pointer" }}>Ver todos los servicios en detalle</button>
         </div>
       </div>
     </section>
@@ -523,7 +523,7 @@ function MarcasCinta({ go }) {
         <div className="marquee" style={{ overflow: "hidden" }}>{row("to-right")}</div>
       </div>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(18px,6vw,90px)", marginTop: 50 }}>
-        <button onClic={() => go("clientes")} style={{ ...btnPrimary, cursor: "pointer" }}>Ver todos los clientes y testimonios</button>
+        <button onClick={() => go("clientes")} style={{ ...btnPrimary, cursor: "pointer" }}>Ver todos los clientes y testimonios</button>
       </div>
     </section>
   );
@@ -642,7 +642,7 @@ function ContactoWhatsApp() {
 
           <button
             type="button"
-            onClic={enviar}
+            onClick={enviar}
             style={{
               marginTop: 8, padding: "16px 28px", borderRadius: 999, border: "none",
               background: "#25D366", color: "#FFFFFF", fontFamily: "'Poppins',sans-serif",
@@ -692,7 +692,7 @@ function ServiciosPage({ go }) {
         <p style={{ fontSize: 18, marginTop: 18, opacity: .9, maxWidth: 520, margin: "18px auto 0" }}>
           Escribinos y armamos juntos el combo que mejor se adapta a tu marca.
         </p>
-        <a href={waLink("Hola Clic Creativo, quiero que me asesoren sobre qué servicios necesito para mi marca")} target="_blank" rel="noreferrer"
+        <a href={waLink("Hola Click Creativo, quiero que me asesoren sobre qué servicios necesito para mi marca")} target="_blank" rel="noreferrer"
           style={{ ...btnPrimary, background: "#123C4D", marginTop: 30 }}>Hablar por WhatsApp</a>
       </section>
     </div>
@@ -720,7 +720,7 @@ function ServiceStripe({ s, i }) {
           <div style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 800, fontSize: 60, color: "#F0743A", lineHeight: 1, opacity: .25 }}>{s.n}</div>
           <h2 style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 700, fontSize: "clamp(26px,3.5vw,40px)", lineHeight: 1.1, letterSpacing: "-.01em", margin: "6px 0 18px" }}>{s.t}</h2>
           <p style={{ fontSize: 17, lineHeight: 1.6, maxWidth: 480, opacity: .88 }}>{s.d}</p>
-          <a href={waLink(`Hola Clic Creativo, me interesa el servicio de ${s.t}`)} target="_blank" rel="noreferrer"
+          <a href={waLink(`Hola Click Creativo, me interesa el servicio de ${s.t}`)} target="_blank" rel="noreferrer"
             style={{ display: "inline-flex", alignItems: "center", gap: 10, marginTop: 26, textDecoration: "none", color: "#F0743A", fontFamily: "'Poppins',sans-serif", fontWeight: 700, fontSize: 16 }}>
             Consultar por WhatsApp
             <span style={{ fontSize: 20 }}>→</span>
@@ -804,7 +804,7 @@ function ClientesPage({ go }) {
         <h2 style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 800, fontSize: "clamp(28px,5vw,52px)", lineHeight: 1.05, letterSpacing: "-.02em", margin: 0 }}>
           Tu marca es la próxima
         </h2>
-        <a href={waLink("Hola Clic Creativo, quiero sumar mi marca")} target="_blank" rel="noreferrer" style={{ ...btnPrimary, marginTop: 30 }}>Escribinos por WhatsApp</a>
+        <a href={waLink("Hola Click Creativo, quiero sumar mi marca")} target="_blank" rel="noreferrer" style={{ ...btnPrimary, marginTop: 30 }}>Escribinos por WhatsApp</a>
       </section>
     </div>
   );
@@ -942,7 +942,7 @@ function NosotrosPage({ go }) {
       {/* hero */}
       <section style={{ background: "#EDE5D8", color: "#123C4D", padding: "clamp(120px,16vw,190px) clamp(18px,6vw,90px) clamp(50px,7vw,80px)", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", right: "-8%", top: "20%", opacity: .05 }}>
-          <ClicLogo size={560} split={0} mono="#123C4D" />
+          <ClickLogo size={560} split={0} mono="#123C4D" />
         </div>
         <div style={{ maxWidth: 1000, margin: "0 auto", position: "relative" }}>
           <p style={eyebrow("#F0743A")}>quiénes somos</p>
@@ -974,14 +974,14 @@ function NosotrosPage({ go }) {
       {/* CTA cierre */}
       <section style={{ background: "#123C4D", color: "#EDE5D8", padding: "clamp(70px,10vw,120px) clamp(18px,6vw,90px)", textAlign: "center" }}>
         <div style={{ display: "inline-block", marginBottom: 24 }}>
-          <ClicLogo size={70} split={0} colorL="#EDE5D8" colorR="#F0743A" />
+          <ClickLogo size={70} split={0} colorL="#EDE5D8" colorR="#F0743A" />
         </div>
         <h2 style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 800, fontSize: "clamp(28px,5vw,52px)", lineHeight: 1.05, letterSpacing: "-.02em", margin: 0 }}>
           Hagamos que tu marca haga clic
         </h2>
         <div style={{ display: "flex", gap: 16, justifyContent: "center", marginTop: 32, flexWrap: "wrap" }}>
-          <a href={waLink("Hola Clic Creativo, quiero trabajar con ustedes")} target="_blank" rel="noreferrer" style={btnPrimary}>Escribinos por WhatsApp</a>
-          <button onClic={() => go("servicios")} style={{ ...btnGhostLight, cursor: "pointer" }}>Ver servicios</button>
+          <a href={waLink("Hola Click Creativo, quiero trabajar con ustedes")} target="_blank" rel="noreferrer" style={btnPrimary}>Escribinos por WhatsApp</a>
+          <button onClick={() => go("servicios")} style={{ ...btnGhostLight, cursor: "pointer" }}>Ver servicios</button>
         </div>
       </section>
     </div>
@@ -1007,7 +1007,7 @@ function NosotrosHistoria() {
           </p>
           <p style={{ fontSize: 18, lineHeight: 1.7, marginTop: 20 }}>
             Contamos con experiencia junto a más de 20 empresas de distintos rubros, adaptando cada
-            estrategia a las necesidades y objetivos de cada marca. En Clic Creativo buscamos que
+            estrategia a las necesidades y objetivos de cada marca. En Click Creativo buscamos que
             cada empresa pueda diferenciarse, conectar con su público y crecer a través de una
             comunicación auténtica y estratégica.
           </p>
@@ -1055,7 +1055,7 @@ function NosotrosFundadoras() {
             <button
               key={f.name}
               type="button"
-              onClic={() => setAbierta(abierta === f.name ? null : f.name)}
+              onClick={() => setAbierta(abierta === f.name ? null : f.name)}
               aria-expanded={abierta === f.name}
               style={{
                 background: "none", border: "none", padding: 0, font: "inherit", color: "inherit",
@@ -1080,7 +1080,7 @@ function NosotrosFundadoras() {
             </div>
             <button
               type="button"
-              onClic={() => setAbierta(null)}
+              onClick={() => setAbierta(null)}
               style={{ marginTop: 32, background: "none", border: "none", padding: 0, font: "inherit", fontWeight: 600, color: "#F0743A", textDecoration: "underline", cursor: "pointer" }}
             >
               Cerrar perfil
@@ -1152,9 +1152,9 @@ function ValorRow({ v, i }) {
 function Footer({ go }) {
   return (
     <footer style={{ background: "#1A1A1A", color: "#EDE5D8", padding: "34px clamp(18px,6vw,90px)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16 }}>
-      <div onClic={() => go && go("home")} style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }}>
-        <ClicLogo size={28} split={0} colorL="#EDE5D8" colorR="#F0743A" />
-        <span style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 700 }}>Clic creativo</span>
+      <div onClick={() => go && go("home")} style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }}>
+        <ClickLogo size={28} split={0} colorL="#EDE5D8" colorR="#F0743A" />
+        <span style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 700 }}>click creativo</span>
       </div>
       <p style={{ fontSize: 13, opacity: .6 }}>Estás a un clic de impulsar tu marca · San Juan, Argentina</p>
     </footer>
