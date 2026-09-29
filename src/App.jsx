@@ -482,7 +482,11 @@ function ServiceCard({ s, i }) {
       }}
     >
       <div style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 800, fontSize: 15, color: palette.accent, letterSpacing: ".1em" }}>{s.n}</div>
-      <h3 style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 700, fontSize: 23, margin: "10px 0 12px",
+            <h3 style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 700, fontSize: 23, margin: "10px 0 12px", lineHeight: 1.15 }}>{s.t}</h3>
+      <p style={{ fontSize: 15, lineHeight: 1.55, opacity: .88, flexGrow: 1 }}>{s.d}</p>
+    </div>
+  );
+}
 function MarcasCinta({ go }) {
   // Cinta transportadora: dos mitades iguales que se deslizan en loop.
   // Cada "logo" es un placeholder; en Lovable van las imágenes reales.
