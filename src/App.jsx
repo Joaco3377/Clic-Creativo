@@ -37,7 +37,7 @@ function ClickLogo({ size = 120, split = 0, colorL = "#123C4D", colorR = "#F0743
           transform: `translate(${split}px, ${split * .5}px)`,
           transition: "transform .7s cubic-bezier(.34,1.3,.5,1)",
         }}>
-          <path d={HOOK_R} fill={c || colorR} />
+          <path d={HOOK_R} fill={c || colorL} />
         </g>
       </g>
     </svg>
