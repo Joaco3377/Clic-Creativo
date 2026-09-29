@@ -1096,25 +1096,23 @@ function FounderCard({ f, i }) {
   const [ref, seen] = useInView({ threshold: 0.2 });
   return (
     <div ref={ref} style={{
-      display: "flex", gap: 22, alignItems: "center",
+      display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", width: 260,
       opacity: seen ? 1 : 0, transform: seen ? "none" : "translateY(24px)",
       transition: `opacity .6s ease ${i * 0.12}s, transform .6s cubic-bezier(.22,1,.36,1) ${i * 0.12}s`,
     }}>
-            {/* foto redonda: si img es una ruta muestra la foto; si no, el texto */}
+      {/* foto vertical: si img es una ruta muestra la foto; si no, el texto */}
       <div style={{
-        width: 120, height: 120, borderRadius: 999, flexShrink: 0, overflow: "hidden",
+        width: 260, aspectRatio: "3 / 4", borderRadius: 20, overflow: "hidden",
         background: "#123C4D", color: "#EDE5D8", border: "3px solid #F0743A",
         display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center",
-        fontSize: 11, fontWeight: 600, lineHeight: 1.3,
+        fontSize: 13, fontWeight: 600, lineHeight: 1.3,
       }}>
         {f.img && f.img.startsWith("/")
-          ? <img src={f.img} alt={f.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 20%", transform: "scale(1.8)", transformOrigin: "50% 40%", display: "block" }} />
-          : <span style={{ padding: 12 }}>{f.img}</span>}
+          ? <img src={f.img} alt={f.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 25%", display: "block" }} />
+          : <span style={{ padding: 16 }}>{f.img}</span>}
       </div>
-      <div>
-        <h3 style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 700, fontSize: 24, margin: 0 }}>{f.name}</h3>
-        <p style={{ fontSize: 15, color: "#F0743A", fontWeight: 600, marginTop: 6 }}>{f.role}</p>
-      </div>
+      <h3 style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 700, fontSize: 24, margin: "20px 0 0" }}>{f.name}</h3>
+      <p style={{ fontSize: 15, color: "#F0743A", fontWeight: 600, marginTop: 6 }}>{f.role}</p>
     </div>
   );
 }
