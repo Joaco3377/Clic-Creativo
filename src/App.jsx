@@ -878,7 +878,7 @@ const LOGO_ZOOM = {
 
 // Fondo especial para logos blancos
 const LOGO_FONDO = {
-  "Doble Pe": "#123C4D",
+   "Doble Pe": "#F0743A",
 };
 
 const LOGO_EXTS = ["", ".png", ".jpg", ".jpeg", ".svg", ".webp", ".PNG", ".JPG", ".JPEG"];
@@ -1181,7 +1181,6 @@ function StyleTag() {
         100% { transform: translateX(0); }
       }
       .marquee-track.to-right { animation: marqueeRight 40s linear infinite; }
-      .marquee:hover .marquee-track { animation-play-state: paused; }
       .pulse { animation: pulse 2s infinite; }
       @keyframes pulse {
         0%,100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(240,116,58,.4); }
