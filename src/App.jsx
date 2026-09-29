@@ -561,9 +561,105 @@ function Testimonial({ t, i }) {
   );
 }
 
+const WHATSAPP_CLIC = "5492646608412";
+
+function ContactoWhatsApp() {
+  const [nombre, setNombre] = useState("");
+  const [servicio, setServicio] = useState("");
+  const [comentarios, setComentarios] = useState("");
+  const [intentoEnviar, setIntentoEnviar] = useState(false);
+
+  const faltaNombre = intentoEnviar && !nombre.trim();
+  const faltaServicio = intentoEnviar && !servicio;
+
+  const enviar = () => {
+    setIntentoEnviar(true);
+    if (!nombre.trim() || !servicio) return;
+    let msg = `¡Hola Clic Creativo! 👋\nSoy ${nombre.trim()}.\nMe interesa: ${servicio}`;
+    if (comentarios.trim()) msg += `\nComentarios: ${comentarios.trim()}`;
+    window.open(`https://wa.me/${WHATSAPP_CLIC}?text=${encodeURIComponent(msg)}`, "_blank");
+  };
+
+  const label = { display: "block", fontWeight: 600, fontSize: 15, marginBottom: 8 };
+  const campo = (error) => ({
+    width: "100%", boxSizing: "border-box", padding: "14px 16px", borderRadius: 12,
+    border: `1.5px solid ${error ? "#D93025" : "rgba(18,60,77,.2)"}`,
+    background: "#FFFFFF", color: "#123C4D", fontSize: 16, fontFamily: "inherit",
+  });
+  const aviso = { color: "#D93025", fontSize: 13, marginTop: 6 };
+
+  return (
+    <section style={{ background: "#EDE5D8", color: "#123C4D", padding: "clamp(60px,9vw,110px) clamp(18px,6vw,90px)" }}>
+      <div style={{ maxWidth: 640, margin: "0 auto" }}>
+        <RevealTitle color="#123C4D" eyebrowText="contacto" eyebrowColor="#F0743A">
+          Potenciá tu marca con Clic Creativo
+        </RevealTitle>
+
+        <div style={{ marginTop: 40, display: "flex", flexDirection: "column", gap: 22 }}>
+          <div>
+            <label htmlFor="cw-nombre" style={label}>Nombre</label>
+            <input
+              id="cw-nombre"
+              type="text"
+              value={nombre}
+              onChange={(e) => setNombre(e.target.value)}
+              placeholder="Tu nombre"
+              style={campo(faltaNombre)}
+            />
+            {faltaNombre && <p style={aviso}>Escribí tu nombre.</p>}
+          </div>
+
+          <div>
+            <label htmlFor="cw-servicio" style={label}>Servicio que buscás</label>
+            <select
+              id="cw-servicio"
+              value={servicio}
+              onChange={(e) => setServicio(e.target.value)}
+              style={{ ...campo(faltaServicio), cursor: "pointer" }}
+            >
+              <option value="" disabled>Elegí un servicio</option>
+              {SERVICES.map((s) => (
+                <option key={s.n} value={s.t}>{s.t}</option>
+              ))}
+              <option value="Otro / No estoy seguro">Otro / No estoy seguro</option>
+            </select>
+            {faltaServicio && <p style={aviso}>Elegí un servicio.</p>}
+          </div>
+
+          <div>
+            <label htmlFor="cw-comentarios" style={label}>
+              Comentarios <span style={{ fontWeight: 400, opacity: .6 }}>(opcional)</span>
+            </label>
+            <textarea
+              id="cw-comentarios"
+              value={comentarios}
+              onChange={(e) => setComentarios(e.target.value)}
+              placeholder="Contanos un poco sobre tu marca o lo que necesitás"
+              rows={4}
+              style={{ ...campo(false), resize: "vertical" }}
+            />
+          </div>
+
+          <button
+            type="button"
+            onClick={enviar}
+            style={{
+              marginTop: 8, padding: "16px 28px", borderRadius: 999, border: "none",
+              background: "#25D366", color: "#FFFFFF", fontFamily: "'Poppins',sans-serif",
+              fontWeight: 700, fontSize: 17, cursor: "pointer", alignSelf: "flex-start",
+            }}
+          >
+            Pedí tu servicio por WhatsApp
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Contacto() {
   return (
-    </>
+    <>
     <section id="contacto" style={{ background: "#123C4D", color: "#EDE5D8", padding: "clamp(80px,12vw,150px) clamp(18px,6vw,90px)", textAlign: "center" }}>
       <div style={{ maxWidth: 820, margin: "0 auto" }}>
         <div style={{ display: "inline-block", marginBottom: 26 }}>
