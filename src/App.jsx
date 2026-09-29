@@ -733,7 +733,7 @@ function ClientesGrid() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(150px,1fr))", gap: 18 }}>
           {CLIENTS.map((c, i) => <ClientLogo key={c} c={c} i={i} />)}
         </div>
-        <p style={{ marginTop: 26, fontSize: 14, color: "#123C4D", opacity: .55 }}>* Cada recuadro es el lugar del logo real; en Lovable se sube la imagen y se enlaza al Instagram de cada marca.</p>
+        <p style={{ marginTop: 26, fontSize: 14, color: "#123C4D", opacity: .55 }}>* </p>
       </div>
     </section>
   );
