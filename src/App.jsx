@@ -756,7 +756,7 @@ const CLIENT_LOGOS = {
   "Parador Corona": "Parador",
   "ARG Carpas": "ARG",
   "GEG Servicios": "GEG",
-  "Peñón del Águila": "Peñón del Águila",
+  "Peñón del Águila": "penon-del-aguila",
   "Plug & Play": "Plug & Play. png",
   "Wabi Sabi": "Wabi",
   "Belle Pur": "Belle pur",
@@ -767,7 +767,7 @@ const CLIENT_LOGOS = {
   "Beable": "BeAble .png",
   "GR Consultora": "GR Consultora. Png",
   "Nutricionista Gabriela Badías": "Gabriela Badias",
-  "Doble Pe": "Doble pe JPG",
+  "Doble Pe": "doble-pe",
   "Agencia LJ": "L&J",
 };
 
