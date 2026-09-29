@@ -197,7 +197,7 @@ function Intro({ onEnter }) {
           lineHeight: .92, letterSpacing: "-.02em", margin: 0,
         }}>
           <span style={{ color: "#123C4D" }}>Clic</span>{" "}
-          <span style={{ color: "#F0743A" }}>creativo</span>
+          <span style={{ color: "#F0743A" }}>Creativo</span>
         </h1>
         <p style={{ fontSize: 15, letterSpacing: ".18em", textTransform: "uppercase", marginTop: 14, color: "#123C4D", opacity: .7 }}>
           agencia de comunicación digital
