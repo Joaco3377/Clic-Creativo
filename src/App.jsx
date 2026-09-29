@@ -1094,21 +1094,23 @@ function NosotrosFundadoras() {
 
 function FounderCard({ f, i }) {
   const [ref, seen] = useInView({ threshold: 0.2 });
+  const esFoto = f.img && f.img.startsWith("/");
   return (
     <div ref={ref} style={{
-      display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", width: 260,
+      display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", width: 280,
       opacity: seen ? 1 : 0, transform: seen ? "none" : "translateY(24px)",
       transition: `opacity .6s ease ${i * 0.12}s, transform .6s cubic-bezier(.22,1,.36,1) ${i * 0.12}s`,
     }}>
-      {/* foto vertical: si img es una ruta muestra la foto; si no, el texto */}
+      {/* foto completa, sin recortes */}
       <div style={{
-        width: 260, aspectRatio: "3 / 4", borderRadius: 20, overflow: "hidden",
+        width: "100%", borderRadius: 20, overflow: "hidden",
         background: "#123C4D", color: "#EDE5D8", border: "3px solid #F0743A",
-        display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center",
+        minHeight: esFoto ? 0 : 320,
+        display: "flex", alignItems: "center", justifyContent: "center",
         fontSize: 13, fontWeight: 600, lineHeight: 1.3,
       }}>
-        {f.img && f.img.startsWith("/")
-          ? <img src={f.img} alt={f.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 25%", display: "block" }} />
+        {esFoto
+          ? <img src={f.img} alt={f.name} style={{ width: "100%", height: "auto", display: "block" }} />
           : <span style={{ padding: 16 }}>{f.img}</span>}
       </div>
       <h3 style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 700, fontSize: 24, margin: "20px 0 0" }}>{f.name}</h3>
@@ -1116,7 +1118,6 @@ function FounderCard({ f, i }) {
     </div>
   );
 }
-
 function NosotrosValores() {
   return (
     <section style={{ background: "#FFFFFF", color: "#123C4D", padding: "clamp(60px,9vw,110px) clamp(18px,6vw,90px)" }}>
