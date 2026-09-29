@@ -826,16 +826,76 @@ function NosotrosHistoria() {
   );
 }
 
+const FOUNDER_BIOS = {
+  "Candela Coll": {
+    quien: "[De dónde es, qué estudió, cómo arrancó en comunicación.]",
+    agencia: "[Qué lidera en la agencia y cómo trabaja.]",
+    fuera: "[Hobbies, intereses, algo que la humanice.]",
+  },
+  "Clara Avellaneda": {
+    quien: "[De dónde es, qué estudió, cómo arrancó en contenido y producción.]",
+    agencia: "[Qué lidera en la agencia y cómo trabaja.]",
+    fuera: "[Hobbies, intereses, algo que la humanice.]",
+  },
+};
+
 function NosotrosFundadoras() {
+  const [abierta, setAbierta] = useState(null);
+  const bio = abierta ? FOUNDER_BIOS[abierta] : null;
+
+  const bloque = (titulo, texto) => (
+    <div>
+      <h4 style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 600, fontSize: 18, margin: "0 0 10px" }}>{titulo}</h4>
+      <p style={{ margin: 0, lineHeight: 1.65, opacity: .85 }}>{texto}</p>
+    </div>
+  );
+
   return (
     <section style={{ background: "#EDE5D8", color: "#123C4D", padding: "clamp(60px,9vw,110px) clamp(18px,6vw,90px)" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-        <RevealTitle color="#123C4D" eyebrowText="las fundadoras" eyebrowColor="#F0743A">
-          Las que hacen que todo conecte
-        </RevealTitle>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 30, marginTop: 50 }} className="grid-2">
-          {FOUNDERS.map((f, i) => <FounderCard key={f.name} f={f} i={i} />)}
+        <div style={{ textAlign: "center" }}>
+          <RevealTitle color="#123C4D" eyebrowText="las fundadoras" eyebrowColor="#F0743A">
+            Las que hacen que todo conecte
+          </RevealTitle>
         </div>
+
+        <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "30px 80px", marginTop: 50 }}>
+          {FOUNDERS.map((f, i) => (
+            <button
+              key={f.name}
+              type="button"
+              onClick={() => setAbierta(abierta === f.name ? null : f.name)}
+              aria-expanded={abierta === f.name}
+              style={{
+                background: "none", border: "none", padding: 0, font: "inherit", color: "inherit",
+                textAlign: "left", cursor: "pointer",
+                opacity: abierta && abierta !== f.name ? 0.5 : 1, transition: "opacity .2s",
+              }}
+            >
+              <FounderCard f={f} i={i} />
+            </button>
+          ))}
+        </div>
+
+        {bio && (
+          <div style={{ maxWidth: 880, margin: "60px auto 0", paddingTop: 40, borderTop: "2px solid #123C4D" }}>
+            <h3 style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 800, fontSize: "clamp(28px,5vw,42px)", letterSpacing: "-.02em", margin: "0 0 32px" }}>
+              {abierta}
+            </h3>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "28px 48px" }}>
+              {bloque("Quién es", bio.quien)}
+              {bloque("Qué hace en la agencia", bio.agencia)}
+              {bloque("Fuera del trabajo", bio.fuera)}
+            </div>
+            <button
+              type="button"
+              onClick={() => setAbierta(null)}
+              style={{ marginTop: 32, background: "none", border: "none", padding: 0, font: "inherit", fontWeight: 600, color: "#F0743A", textDecoration: "underline", cursor: "pointer" }}
+            >
+              Cerrar perfil
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
