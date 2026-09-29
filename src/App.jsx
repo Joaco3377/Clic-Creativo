@@ -730,15 +730,51 @@ function ClientesGrid() {
   );
 }
 
+// Poné entre las comillas la ruta de cada logo. Si queda vacío, se muestra el nombre.
+const CLIENT_LOGOS = {
+  "Donata del Desierto": "",
+  "Punto Donata": "",
+  "La Vereda Donata": "",
+  "Refugio Donata": "",
+  "Club Andino Mercedario": "",
+  "Coldwell Banker Impacto Pro": "",
+  "Seis Luces": "",
+  "El Retorno": "",
+  "Jarana Sanguchería": "",
+  "Andalué": "",
+  "Vasco Pescadería": "",
+  "INAR Energía Solar": "",
+  "Parador Corona": "",
+  "ARG Carpas": "",
+  "GEG Servicios": "",
+  "Peñón del Águila": "",
+  "Plug & Play": "",
+  "Wabi Sabi": "",
+  "Belle Pur": "",
+  "Aurae Centro Holístico": "",
+  "Session Pro": "",
+  "Quintana House": "",
+  "Black Pear": "",
+  "Beable": "",
+  "GR Consultora": "",
+  "Nutricionista Gabriela Badías": "",
+  "Doble Pe": "",
+  "Agencia LJ": "",
+};
+
 function ClientLogo({ c, i }) {
   const [ref, seen] = useInView({ threshold: 0.1 });
   const [hov, setHov] = useState(false);
+  const [fallo, setFallo] = useState(false);
+  const logo = CLIENT_LOGOS[c];
+  const mostrarLogo = logo && !fallo;
+
   return (
     <div
       ref={ref}
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
-      title={`Ver perfil de ${c}`}
+      title={c}
       style={{
         aspectRatio: "1 / 1", borderRadius: 16, background: "#FFFFFF",
         border: "1.5px solid rgba(18,60,77,.12)", cursor: "pointer",
@@ -749,7 +785,18 @@ function ClientLogo({ c, i }) {
         transition: `opacity .5s ease ${(i % 6) * 0.05}s, transform .3s ease`,
         boxShadow: hov ? "0 14px 30px -14px rgba(18,60,77,.4)" : "none",
       }}
-    >{c}</div>
+    >
+      {mostrarLogo ? (
+        <img
+          src={logo}
+          alt={c}
+          onError={() => setFallo(true)}
+          style={{ maxWidth: "80%", maxHeight: "70%", objectFit: "contain", display: "block" }}
+        />
+      ) : (
+        c
+      )}
+    </div>
   );
 }
 
