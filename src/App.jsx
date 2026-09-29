@@ -490,7 +490,7 @@ function ServiceCard({ s, i }) {
 function CintaLogo({ c }) {
   return (
     <div style={{
-      flexShrink: 0, width: 170, height: 90, borderRadius: 14, overflow: "hidden",
+      flexShrink: 0, width: 170, height: 90, borderRadius: 14, overflow: "hidden", marginRight: 24,
       background: LOGO_FONDO[c] || "#FFFFFF", border: "1.5px solid rgba(18,60,77,.12)",
       display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center",
       padding: "0 16px", color: "#123C4D",
@@ -503,7 +503,7 @@ function CintaLogo({ c }) {
 
 function MarcasCinta({ go }) {
   const row = (dir) => (
-    <div className={`marquee-track ${dir}`} style={{ display: "flex", gap: 24, width: "max-content" }}>
+    <div className={`marquee-track ${dir}`} style={{ display: "flex", width: "max-content", willChange: "transform" }}>
       {[...CLIENTS, ...CLIENTS].map((c, i) => (
         <CintaLogo key={dir + i} c={c} />
       ))}
