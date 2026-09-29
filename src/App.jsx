@@ -692,7 +692,7 @@ function ServiciosPage({ go }) {
         <p style={{ fontSize: 18, marginTop: 18, opacity: .9, maxWidth: 520, margin: "18px auto 0" }}>
           Escribinos y armamos juntos el combo que mejor se adapta a tu marca.
         </p>
-        <a href={waLink("Hola Click Creativo, quiero que me asesoren sobre qué servicios necesito para mi marca")} target="_blank" rel="noreferrer"
+        <a href={waLink("Hola Clic Creativo, quiero que me asesoren sobre qué servicios necesito para mi marca")} target="_blank" rel="noreferrer"
           style={{ ...btnPrimary, background: "#123C4D", marginTop: 30 }}>Hablar por WhatsApp</a>
       </section>
     </div>
@@ -720,7 +720,7 @@ function ServiceStripe({ s, i }) {
           <div style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 800, fontSize: 60, color: "#F0743A", lineHeight: 1, opacity: .25 }}>{s.n}</div>
           <h2 style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 700, fontSize: "clamp(26px,3.5vw,40px)", lineHeight: 1.1, letterSpacing: "-.01em", margin: "6px 0 18px" }}>{s.t}</h2>
           <p style={{ fontSize: 17, lineHeight: 1.6, maxWidth: 480, opacity: .88 }}>{s.d}</p>
-          <a href={waLink(`Hola Click Creativo, me interesa el servicio de ${s.t}`)} target="_blank" rel="noreferrer"
+          <a href={waLink(`Hola Clic Creativo, me interesa el servicio de ${s.t}`)} target="_blank" rel="noreferrer"
             style={{ display: "inline-flex", alignItems: "center", gap: 10, marginTop: 26, textDecoration: "none", color: "#F0743A", fontFamily: "'Poppins',sans-serif", fontWeight: 700, fontSize: 16 }}>
             Consultar por WhatsApp
             <span style={{ fontSize: 20 }}>→</span>
@@ -804,7 +804,7 @@ function ClientesPage({ go }) {
         <h2 style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 800, fontSize: "clamp(28px,5vw,52px)", lineHeight: 1.05, letterSpacing: "-.02em", margin: 0 }}>
           Tu marca es la próxima
         </h2>
-        <a href={waLink("Hola Click Creativo, quiero sumar mi marca")} target="_blank" rel="noreferrer" style={{ ...btnPrimary, marginTop: 30 }}>Escribinos por WhatsApp</a>
+        <a href={waLink("Hola Clic Creativo, quiero sumar mi marca")} target="_blank" rel="noreferrer" style={{ ...btnPrimary, marginTop: 30 }}>Escribinos por WhatsApp</a>
       </section>
     </div>
   );
@@ -980,7 +980,7 @@ function NosotrosPage({ go }) {
           Hagamos que tu marca haga clic
         </h2>
         <div style={{ display: "flex", gap: 16, justifyContent: "center", marginTop: 32, flexWrap: "wrap" }}>
-          <a href={waLink("Hola Click Creativo, quiero trabajar con ustedes")} target="_blank" rel="noreferrer" style={btnPrimary}>Escribinos por WhatsApp</a>
+          <a href={waLink("Hola Clic Creativo, quiero trabajar con ustedes")} target="_blank" rel="noreferrer" style={btnPrimary}>Escribinos por WhatsApp</a>
           <button onClick={() => go("servicios")} style={{ ...btnGhostLight, cursor: "pointer" }}>Ver servicios</button>
         </div>
       </section>
@@ -1007,7 +1007,7 @@ function NosotrosHistoria() {
           </p>
           <p style={{ fontSize: 18, lineHeight: 1.7, marginTop: 20 }}>
             Contamos con experiencia junto a más de 20 empresas de distintos rubros, adaptando cada
-            estrategia a las necesidades y objetivos de cada marca. En Click Creativo buscamos que
+            estrategia a las necesidades y objetivos de cada marca. En Clic Creativo buscamos que
             cada empresa pueda diferenciarse, conectar con su público y crecer a través de una
             comunicación auténtica y estratégica.
           </p>
@@ -1154,7 +1154,7 @@ function Footer({ go }) {
     <footer style={{ background: "#1A1A1A", color: "#EDE5D8", padding: "34px clamp(18px,6vw,90px)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16 }}>
       <div onClick={() => go && go("home")} style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }}>
         <ClickLogo size={28} split={0} colorL="#EDE5D8" colorR="#F0743A" />
-        <span style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 700 }}>click creativo</span>
+        <span style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 700 }}>Clic Creativo</span>
       </div>
       <p style={{ fontSize: 13, opacity: .6 }}>Estás a un clic de impulsar tu marca · San Juan, Argentina</p>
     </footer>
