@@ -196,7 +196,7 @@ function Intro({ onEnter }) {
           fontFamily: "'Poppins', sans-serif", fontWeight: 800, fontSize: "clamp(38px,7vw,68px)",
           lineHeight: .92, letterSpacing: "-.02em", margin: 0,
         }}>
-          <span style={{ color: "#123C4D" }}>clic</span>{" "}
+          <span style={{ color: "#123C4D" }}>Clic</span>{" "}
           <span style={{ color: "#F0743A" }}>creativo</span>
         </h1>
         <p style={{ fontSize: 15, letterSpacing: ".18em", textTransform: "uppercase", marginTop: 14, color: "#123C4D", opacity: .7 }}>
@@ -284,7 +284,7 @@ function Header({ route, go }) {
         <span style={{
           fontFamily: "'Poppins',sans-serif", fontWeight: 700, fontSize: 18,
           color: dark ? "#EDE5D8" : "#123C4D",
-        }}>clic creativo</span>
+        }}>Clic Creativo</span>
       </div>
       <nav style={{ display: "flex", gap: 28, alignItems: "center" }} className="nav-desktop">
         {items.map((it) => {
