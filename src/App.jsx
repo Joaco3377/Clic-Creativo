@@ -488,31 +488,15 @@ function ServiceCard({ s, i }) {
   );
 }
 function CintaLogo({ c }) {
-  const [intento, setIntento] = useState(0);
-  const base = CLIENT_LOGOS[c];
-  const src = base && intento < LOGO_EXTS.length
-    ? encodeURI("/" + base + LOGO_EXTS[intento])
-    : null;
-
   return (
     <div style={{
-      flexShrink: 0, width: 170, height: 90, borderRadius: 14,
-      background: "#FFFFFF", border: "1.5px solid rgba(18,60,77,.12)",
+      flexShrink: 0, width: 170, height: 90, borderRadius: 14, overflow: "hidden",
+      background: LOGO_FONDO[c] || "#FFFFFF", border: "1.5px solid rgba(18,60,77,.12)",
       display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center",
       padding: "0 16px", color: "#123C4D",
       fontFamily: "'Poppins',sans-serif", fontWeight: 600, fontSize: 14,
     }}>
-      {src ? (
-        <img
-          key={src}
-          src={src}
-          alt={c}
-          onError={() => setIntento((n) => n + 1)}
-          style={{ maxWidth: "85%", maxHeight: "65%", objectFit: "contain", display: "block" }}
-        />
-      ) : (
-        c
-      )}
+      <LogoImagen c={c} maxW="85%" maxH="65%" />
     </div>
   );
 }
@@ -755,11 +739,11 @@ function ClientesGrid() {
   );
 }
 
-// Nombre del cliente → nombre del archivo en /public (sin importar la extensión)
+// Nombre del cliente → nombre del archivo en /public
 const CLIENT_LOGOS = {
   "Donata del Desierto": "Donata del Desierto. Png",
   "Punto Donata": "Punto Donata",
-  "La Vereda Donata": "",
+  "La Vereda Donata": "La Vereda Donata",
   "Refugio Donata": "Refugio Donata. png",
   "Club Andino Mercedario": "CAM",
   "Coldwell Banker Impacto Pro": "CB Impacto Pro",
@@ -780,23 +764,71 @@ const CLIENT_LOGOS = {
   "Session Pro": "Session Pro",
   "Quintana House": "Quintana House",
   "Black Pear": "Black Pear. PNG",
-  "Beable": "BeAble",
+  "Beable": "BeAble .png",
   "GR Consultora": "GR Consultora. Png",
-  "Nutricionista Gabriela Badías": "",
-  "Doble Pe": "Doble pe",
+  "Nutricionista Gabriela Badías": "Gabriela Badias",
+  "Doble Pe": "Doble pe JPG",
   "Agencia LJ": "L&J",
+};
+
+// Agrandar logos que se ven chicos (1 = tamaño normal, 2 = el doble)
+const LOGO_ZOOM = {
+  "Donata del Desierto": 2.5,
+  "Punto Donata": 2.5,
+  "Refugio Donata": 1.8,
+  "Club Andino Mercedario": 1.4,
+  "Coldwell Banker Impacto Pro": 1.8,
+  "El Retorno": 2.5,
+  "Andalué": 1.4,
+  "Vasco Pescadería": 2,
+  "INAR Energía Solar": 2,
+  "Parador Corona": 1.4,
+  "ARG Carpas": 1.8,
+  "GEG Servicios": 2,
+  "Plug & Play": 2,
+  "Wabi Sabi": 2,
+  "Belle Pur": 2.2,
+  "Aurae Centro Holístico": 1.8,
+  "Quintana House": 1.5,
+};
+
+// Fondo especial para logos blancos
+const LOGO_FONDO = {
+  "Doble Pe": "#123C4D",
 };
 
 const LOGO_EXTS = ["", ".png", ".jpg", ".jpeg", ".svg", ".webp", ".PNG", ".JPG", ".JPEG"];
 
+function logoSrcs(base) {
+  if (!base) return [];
+  const out = [];
+  [base, base.normalize("NFD")].forEach((b) =>
+    LOGO_EXTS.forEach((ext) => out.push(encodeURI("/" + b + ext)))
+  );
+  return [...new Set(out)];
+}
+
+function LogoImagen({ c, maxW, maxH }) {
+  const [intento, setIntento] = useState(0);
+  const srcs = logoSrcs(CLIENT_LOGOS[c]);
+  if (intento >= srcs.length) return <>{c}</>;
+  return (
+    <img
+      key={srcs[intento]}
+      src={srcs[intento]}
+      alt={c}
+      onError={() => setIntento((n) => n + 1)}
+      style={{
+        maxWidth: maxW, maxHeight: maxH, objectFit: "contain", display: "block",
+        transform: `scale(${LOGO_ZOOM[c] || 1})`,
+      }}
+    />
+  );
+}
+
 function ClientLogo({ c, i }) {
   const [ref, seen] = useInView({ threshold: 0.1 });
   const [hov, setHov] = useState(false);
-  const [intento, setIntento] = useState(0);
-  const base = CLIENT_LOGOS[c];
-  const src = base && intento < LOGO_EXTS.length
-    ? encodeURI("/" + base + LOGO_EXTS[intento])
-    : null;
 
   return (
     <div
@@ -805,8 +837,8 @@ function ClientLogo({ c, i }) {
       onMouseLeave={() => setHov(false)}
       title={c}
       style={{
-        aspectRatio: "1 / 1", borderRadius: 16, background: "#FFFFFF",
-        border: "1.5px solid rgba(18,60,77,.12)", cursor: "pointer",
+        aspectRatio: "1 / 1", borderRadius: 16, background: LOGO_FONDO[c] || "#FFFFFF",
+        border: "1.5px solid rgba(18,60,77,.12)", cursor: "pointer", overflow: "hidden",
         display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", padding: 14,
         color: "#123C4D", fontFamily: "'Poppins',sans-serif", fontWeight: 600, fontSize: 14,
         opacity: seen ? 1 : 0,
@@ -815,21 +847,10 @@ function ClientLogo({ c, i }) {
         boxShadow: hov ? "0 14px 30px -14px rgba(18,60,77,.4)" : "none",
       }}
     >
-      {src ? (
-        <img
-          key={src}
-          src={src}
-          alt={c}
-          onError={() => setIntento((n) => n + 1)}
-          style={{ maxWidth: "80%", maxHeight: "70%", objectFit: "contain", display: "block" }}
-        />
-      ) : (
-        c
-      )}
+      <LogoImagen c={c} maxW="80%" maxH="70%" />
     </div>
   );
 }
-
 /* ===================== PÁGINA: NOSOTROS ===================== */
 function NosotrosPage({ go }) {
   return (
