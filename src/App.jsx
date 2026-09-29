@@ -1108,7 +1108,7 @@ function FounderCard({ f, i }) {
         fontSize: 11, fontWeight: 600, lineHeight: 1.3,
       }}>
         {f.img && f.img.startsWith("/")
-          ? <img src={f.img} alt={f.name} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+          ? <img src={f.img} alt={f.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 20%", transform: "scale(1.8)", transformOrigin: "50% 40%", display: "block" }} />
           : <span style={{ padding: 12 }}>{f.img}</span>}
       </div>
       <div>
