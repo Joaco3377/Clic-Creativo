@@ -14,6 +14,23 @@ import React, { useState, useEffect, useRef } from "react";
 const HOOK_L = "M 59.65,0.21 C 55.14,0.72 50.29,2.30 43.47,5.51 C 27.12,13.18 13.48,26.25 7.00,40.23 C -3.26,62.50 -2.19,87.47 9.87,105.67 C 21.37,123.04 37.89,132.50 59.36,134.08 C 64.77,134.48 74.36,133.63 80.50,132.28 C 99.55,127.94 116.86,114.24 128.81,94.06 C 131.46,89.61 133.99,83.30 133.37,82.73 C 132.70,82.06 103.89,69.60 103.56,69.77 C 103.33,69.94 102.99,70.84 102.77,71.74 C 102.26,74.05 97.64,81.04 94.26,84.48 C 86.70,92.32 76.56,95.36 65.73,93.10 C 58.29,91.53 48.99,84.25 45.16,77.04 C 40.54,68.36 40.54,57.09 45.10,48.52 C 48.94,41.36 59.76,33.24 67.31,32.00 C 70.81,31.38 71.43,31.16 71.20,30.42 C 71.09,30.03 69.45,23.15 67.48,15.09 C 65.56,7.03 63.87,0.27 63.65,0.10 C 63.48,-0.07 61.67,-0.01 59.65,0.21 Z";
 const HOOK_R = "M 126.16,1.28 C 119.28,2.41 111.17,5.00 105.58,7.88 C 88.73,16.39 75.54,32.45 68.16,53.37 C 66.24,58.72 64.94,65.43 65.68,66.16 C 66.13,66.61 70.64,67.63 91.32,71.97 L 97.36,73.21 L 98.03,70.11 C 99.44,62.95 103.61,55.51 109.14,49.98 C 116.97,42.20 131.74,40.12 142.34,45.42 C 155.08,51.73 161.78,64.19 159.92,77.94 C 158.57,87.75 150.62,97.78 140.42,102.63 L 136.98,104.27 L 138.33,107.03 C 139.07,108.55 142.22,115.03 145.32,121.46 C 148.37,127.94 151.13,133.18 151.36,133.18 C 153.05,133.13 159.19,130.48 162.74,128.28 C 176.33,119.88 188.67,106.24 194.25,93.39 C 198.31,84.09 200.00,75.80 200.00,65.26 C 199.94,45.30 193.41,29.18 180.50,17.12 C 165.50,3.14 147.01,-2.27 126.16,1.28 Z";
 
+
+function LogoClic(props) {
+  const [split, setSplit] = useState(0);
+
+  useEffect(() => {
+    // Si la persona tiene activado "reducir movimiento" en su compu, no se anima
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let volver;
+    const ciclo = setInterval(() => {
+      setSplit(22);                              // se separa
+      volver = setTimeout(() => setSplit(0), 1100); // y se vuelve a unir
+    }, 3500);                                    // cada 3,5 segundos
+    return () => { clearInterval(ciclo); clearTimeout(volver); };
+  }, []);
+
+  return <ClickLogo {...props} split={split} />;
+}
 function ClickLogo({ size = 120, split = 0, colorL = "#123C4D", colorR = "#F0743A", mono }) {
   // split: 0 = logo real entrelazado; >0 = ganchos separados en diagonal ("antes")
   const c = mono || null;
@@ -318,7 +335,7 @@ function Hero({ go }) {
     }}>
       {/* marca de agua: logo gigante */}
             <div style={{ position: "absolute", right: "3%", top: "50%", transform: "translateY(-50%)", opacity: on ? .9 : 0, transition: "opacity 1.2s ease .4s" }}>
-        <ClickLogo size={560} split={0} colorL="#123C4D" colorR="#F0743A" />
+        <LogoClic size={560} split={0} colorL="#123C4D" colorR="#F0743A" />
       </div>
       <div style={{ position: "relative", maxWidth: 1100 }}>
         <p style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 600, fontSize: 15, letterSpacing: ".22em", textTransform: "uppercase", color: "#F0743A", marginBottom: 20, ...step(0.1) }}>
