@@ -142,14 +142,21 @@ const VALORES = [
 ];
 
 const SERVICES = [
-  { n: "01", t: "Gestión de redes", d: "Instagram, Facebook y TikTok. Ideamos, planificamos y publicamos contenido estratégico para que tu marca tenga presencia activa y alineada a sus objetivos.", tone: "beige", img: "Grilla de reels (Donata) — vertical", kind: "grid", src: "/gestion%20redes.jpg" },
-  { n: "02", t: "Contenido orgánico", d: "Fotos, videos, reels y piezas audiovisuales auténticas, pensadas para conectar con tu público y mostrar el valor real de tu empresa.", tone: "orange", img: "Persona filmando con celular — vertical", kind: "photo", src: "/contenido.jpg" },
-  { n: "03", t: "Cobertura aérea con dron", d: "Imágenes y videos aéreos de alta calidad para mostrar proyectos, instalaciones y espacios desde una perspectiva diferencial.", tone: "blue", img: "VIDEO de dron — horizontal (pendiente)", kind: "video" },
-  { n: "04", t: "Fotografía profesional", d: "Producciones de productos, espacios, equipos y servicios. Imágenes que potencian tu identidad visual y transmiten confianza.", tone: "beige", img: "Platos / botella Seis Luces / uvas — vertical", kind: "photo", src: "/fotografia.jpg" },
-  { n: "05", t: "Análisis de experiencia", d: "Analizamos tu empresa desde la mirada real del cliente. Te mostramos qué mejorar, cómo hacerlo y por qué ayuda a crecer.", tone: "orange", img: "Sin imagen aún", kind: "none", src: "/analisis%20de%20experiencia.jpg" },
-  { n: "06", t: "Cobertura de eventos", d: "Registramos eventos corporativos y sociales con contenido dinámico para difusión y posicionamiento de marca.", tone: "blue", img: "Sin imagen aún", kind: "none" },
-  { n: "07", t: "Pauta publicitaria", d: "Gestión y optimización de campañas en Meta Ads: segmentación, monitoreo y ajuste según rendimiento.", tone: "beige", img: "Sin imagen aún", kind: "none", src: "/Pauta%20Publicitaria.webp" },
-  { n: "08", t: "Manual de marca", d: "Desarrollamos tu identidad visual completa: paleta, tipografías, usos del logo y criterios de aplicación.", tone: "orange", img: "Sin imagen aún", kind: "none" },
+  { n: "01", t: "Gestión de redes", d: "Instagram, Facebook y TikTok — nos encargamos de idear, planificar y publicar contenido estratégico para que tu marca mantenga una presencia activa, profesional y alineada con sus objetivos. Trabajamos cada red de manera personalizada para mejorar el alcance, la interacción y el posicionamiento de la marca.
+", tone: "beige", img: "Grilla de reels (Donata) — vertical", kind: "grid", src: "/gestion%20redes.jpg" },
+  { n: "02", t: "Contenido orgánico", d: "Contenido visual y audiovisual — creamos contenido auténtico, dinámico y adaptado a cada marca. Desarrollamos fotos, videos, reels y piezas audiovisuales pensadas para conectar con el público y mostrar el valor real de tu empresa. Contenido estratégico que ayuda a generar cercanía, confianza y presencia digital.
+", tone: "orange", img: "Persona filmando con celular — vertical", kind: "photo", src: "/contenido.jpg" },
+  { n: "03", t: "Cobertura aérea con dron", d: "Capturamos imágenes y videos aéreos de alta calidad para mostrar proyectos, instalaciones, eventos y espacios desde una perspectiva impactante y diferencial. Ideal para industrias, empresas, obras, eventos y marcas que buscan destacar visualmente.
+", tone: "blue", img: "VIDEO de dron — horizontal (pendiente)", kind: "video" },
+  { n: "04", t: "Fotografía profesional", d: "Realizamos producciones fotográficas de productos, espacios, equipos de trabajo y servicios. Imágenes de calidad profesional que potencian la identidad visual de tu marca y transmiten mayor confianza y profesionalismo.", tone: "beige", img: "Platos / botella Seis Luces / uvas — vertical", kind: "photo", src: "/fotografia.jpg" },
+  { n: "05", t: "Análisis de experiencia", d: "Analizamos tu empresa desde la mirada real del cliente para detectar oportunidades de mejora. Evaluamos aspectos como atención, experiencia general, comunicación, presentación, servicio y detalles que impactan directamente en la percepción del consumidor. No solo mostramos qué mejorar, sino también cómo hacerlo y por qué puede ayudar al crecimiento de tu marca.
+", tone: "orange", img: "Sin imagen aún", kind: "none", src: "/analisis%20de%20experiencia.jpg" },
+  { n: "06", t: "Cobertura de eventos", d: "Registramos eventos corporativos, empresariales y sociales a través de contenido dinámico y profesional. Capturamos los momentos más importantes para generar material de comunicación, difusión y posicionamiento de marca.
+", tone: "blue", img: "Sin imagen aún", kind: "none" },
+  { n: "07", t: "Pauta publicitaria", d: "Realizamos la gestión y optimización de campañas publicitarias en Meta Ads (Facebook e Instagram), orientadas a aumentar el alcance, generar interacción y atraer potenciales clientes. Incluye configuración de campañas, segmentación de audiencias, monitoreo de resultados y optimización según el rendimiento.
+", tone: "beige", img: "Sin imagen aún", kind: "none", src: "/Pauta%20Publicitaria.webp" },
+  { n: "08", t: "Manual de marca", d: "Desarrollamos de manera integral el manual de identidad visual, estableciendo los lineamientos necesarios para garantizar una comunicación coherente y consistente de la marca. Incluye definición de identidad, paleta cromática, tipografías, usos del logotipo, criterios de aplicación en diferentes soportes y más. 
+", tone: "orange", img: "Sin imagen aún", kind: "none" },
 ];
 
 const CLIENTS = [
