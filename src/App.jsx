@@ -962,26 +962,42 @@ function LogoImagen({ c, maxW, maxH }) {
 function ClientLogo({ c, i }) {
   const [ref, seen] = useInView({ threshold: 0.1 });
   const [hov, setHov] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
-    <div
-      ref={ref}
-      onMouseEnter={() => setHov(true)}
-      onMouseLeave={() => setHov(false)}
-      title={c}
-      style={{
-        aspectRatio: "1 / 1", borderRadius: 16, background: LOGO_FONDO[c] || "#FFFFFF",
-        border: "1.5px solid rgba(18,60,77,.12)", cursor: "pointer", overflow: "hidden",
-        display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", padding: 14,
-        color: "#123C4D", fontFamily: "'Poppins',sans-serif", fontWeight: 600, fontSize: 14,
-        opacity: seen ? 1 : 0,
-        transform: seen ? (hov ? "translateY(-4px)" : "none") : "scale(.94)",
-        transition: `opacity .5s ease ${(i % 6) * 0.05}s, transform .3s ease`,
-        boxShadow: hov ? "0 14px 30px -14px rgba(18,60,77,.4)" : "none",
-      }}
-    >
-      <LogoImagen c={c} maxW="80%" maxH="70%" />
-    </div>
+    <>
+      <div
+        ref={ref}
+        onClick={() => setOpen(true)}
+        onMouseEnter={() => setHov(true)}
+        onMouseLeave={() => setHov(false)}
+        title={c}
+        style={{
+          aspectRatio: "1 / 1", borderRadius: 16, background: LOGO_FONDO[c] || "#FFFFFF",
+          border: "1.5px solid rgba(18,60,77,.12)", cursor: "pointer", overflow: "hidden",
+          display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", padding: 14,
+          color: "#123C4D", fontFamily: "'Poppins',sans-serif", fontWeight: 600, fontSize: 14,
+          opacity: seen ? 1 : 0,
+          transform: seen ? (hov ? "translateY(-4px)" : "none") : "scale(.94)",
+          transition: `opacity .5s ease ${(i % 6) * 0.05}s, transform .3s ease`,
+          boxShadow: hov ? "0 14px 30px -14px rgba(18,60,77,.4)" : "none",
+        }}
+      >
+        <LogoImagen c={c} maxW="80%" maxH="70%" />
+      </div>
+      {open && (
+        <div onClick={() => setOpen(false)} style={{ position: "fixed", inset: 0, background: "rgba(18,60,77,.6)", display: "flex", alignItems: "center", justifyContent: "center", padding: 20, zIndex: 100 }}>
+          <div onClick={(e) => e.stopPropagation()} style={{ background: "#EDE5D8", borderRadius: 20, maxWidth: 460, width: "100%", padding: 32, position: "relative", textAlign: "left" }}>
+            <button onClick={() => setOpen(false)} style={{ position: "absolute", top: 14, right: 18, border: "none", background: "transparent", fontSize: 26, cursor: "pointer", color: "#123C4D", lineHeight: 1 }}>×</button>
+            <div style={{ height: 70, marginBottom: 18, display: "flex", alignItems: "center", overflow: "hidden" }}>
+              <LogoImagen c={c} maxW={130} maxH={70} />
+            </div>
+            <h3 style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 700, fontSize: 22, color: "#123C4D", margin: "0 0 12px" }}>{c}</h3>
+            <p style={{ fontSize: 15, lineHeight: 1.6, color: "#123C4D", margin: 0 }}>{CLIENT_INFO[c] || "Pronto, más info sobre esta marca."}</p>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 /* ===================== PÁGINA: NOSOTROS ===================== */
