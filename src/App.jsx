@@ -873,7 +873,37 @@ const CLIENT_LOGOS = {
   "Doble Pe": "doble-pe",
   "Agencia LJ": "L&J",
 };
-
+// Descripción de cada cliente (se muestra al tocar el logo). Texto entre acentos graves ` `.
+const CLIENT_INFO = {
+  "Donata del Desierto": `Una de las cervecerías artesanales más reconocidas y prestigiosas de San Juan. Combina fábrica, bar y restaurante, con un fuerte compromiso sustentable y una agenda cultural activa: bandas en vivo, DJs, trivias y bingo musical.`,
+  "Punto Donata": `Sucursal céntrica de la cervecería Donata del Desierto en San Juan. Un espacio que combina cafetería, gastronomía, cerveza artesanal y coctelería, pensado para disfrutar tanto de día como de noche.`,
+  "La Vereda Donata": `Espacio gastronómico de San Juan perteneciente a Donata del Desierto. Combina cafetería, bar y restaurante, con gastronomía variada, cerveza artesanal y coctelería.`,
+  "Refugio Donata": `Proyecto de montaña en Barreal, perteneciente a Donata del Desierto. Integra alojamiento, fábrica de cerveza y bar, combinando turismo, gastronomía y producción cervecera.`,
+  "Club Andino Mercedario": `Institución histórica y referente del montañismo sanjuanino. Se dedica a la formación integral de montañistas y escaladores de todas las edades, y cuenta con una brigada de rescate voluntario protagonista de operativos clave en la provincia.`,
+  "Coldwell Banker Impacto Pro": `Oficina en Mendoza (Ana María Vignoni) de una de las redes inmobiliarias más grandes y reconocidas del mundo. Venta y alquiler de propiedades, con fuerte innovación tecnológica como los recorridos virtuales.`,
+  "Seis Luces": `Proyecto de vino familiar y de autor en San Juan. Elabora líneas boutique de Torrontés, Bonarda, Malbec, Naranjo y Torrontés Dulce Natural.`,
+  "El Retorno": `Casa de campo y alojamiento rural familiar en Barreal. Una propuesta de turismo rural auténtica que combina alojamiento, naturaleza y actividades de la vida de campo.`,
+  "Jarana Sanguchería": `Propuesta gastronómica sanjuanina especializada en la pachata, el icónico sánguche de lomo en pan baguette de la provincia. Atención en local y delivery.`,
+  "Andalué": `Centro Modelo de rehabilitación, gran referente en neurorehabilitación infantojuvenil y estimulación temprana en San Juan. Equipo interdisciplinario enfocado en el desarrollo integral de niños y adolescentes.`,
+  "Vasco Pescadería": `Comercio tradicional y referente en la venta de pescados y mariscos frescos en San Juan. Provee productos de mar premium a restaurantes, mercados, supermercados, almacenes y comercios.`,
+  "INAR Energía Solar": `Empresa de ingeniería sanjuanina líder en energías renovables. Se especializa en sistemas fotovoltaicos, eficiencia energética y soluciones sustentables a gran escala en varias provincias.`,
+  "Parador Corona": `Bar y club nocturno de San Juan que combina gastronomía, coctelería y entretenimiento en un mismo espacio, con una agenda de eventos durante todo el año.`,
+  "ARG Carpas": `Empresa sanjuanina líder a nivel nacional en soluciones textiles de alta resistencia para minería, industria, petróleo y agroindustria: carpas térmicas, ventilación, ductos, estructuras y soluciones a medida.`,
+  "GEG Servicios": `Empresa sanjuanina especializada en servicios generales, mantenimiento integral y limpieza e higiene para empresas, oficinas, industrias, galpones, obras y campamentos mineros.`,
+  "Peñón del Águila": `Franquicia sanjuanina de la reconocida marca nacional de cerveza artesanal Peñón del Águila. Combina cervezas de autor, coctelería de nivel y una gran oferta gastronómica.`,
+  "Plug & Play": `Comercio de amplia trayectoria en el rubro tecnológico de San Juan. Servicio técnico especializado y venta de productos de computación, insumos de impresión y accesorios.`,
+  "Wabi Sabi": `Centro de nutrición, estética y bienestar. Ofrece asesoramiento nutricional, tratamientos faciales y corporales, y una amplia variedad de servicios de belleza.`,
+  "Belle Pur": `Centro de estética integral enfocado en el cuidado personal y la imagen. Tratamientos corporales, peluquería y cosmetología, junto a distintas propuestas de estética.`,
+  "Aurae Centro Holístico": `Espacio dedicado al bienestar, el movimiento y el autoconocimiento en San Juan. Clases y sesiones de yoga, pilates, astrología, tarot y diversos talleres.`,
+  "Session Pro": `Productora de eventos reconocida en el entretenimiento masivo de San Juan. Organiza recitales y fiestas, trayendo a la provincia a los artistas nacionales más importantes del rock, indie, electrónica y cuarteto.`,
+  "Quintana House": `El primer y único bar de juegos y papas de San Juan. Combina gastronomía, coctelería y entretenimiento.`,
+  "Black Pear": `Reconocido club nocturno y espacio de eventos en San Juan. Se destaca por su propuesta de entretenimiento, con fiestas, eventos y una programación orientada al público joven.`,
+  "Beable": `Tienda de moda circular y sustentable que promueve un consumo de prendas más consciente, apostando por la reutilización y la sustentabilidad.`,
+  "GR Consultora": `Consultora enfocada en la gestión del talento humano. Selección de personal, reclutamiento y asesoramiento en recursos humanos para optimizar equipos de trabajo.`,
+  "Nutricionista Gabriela Badías": `Solución integral de alimentación saludable en San Juan. Combina la consulta nutricional profesional con planes alimenticios personalizados y la entrega de viandas a domicilio.`,
+  "Doble Pe": `Empresa de Villa La Angostura especializada en trabajos en altura, limpieza de vidrios y colocación de sistemas de anclaje, con foco en seguridad, precisión y soluciones profesionales.`,
+  "Agencia LJ": `Agencia de marketing digital con presencia en Mendoza y Miami, especializada en potenciar las ventas de sus clientes mediante publicidad online, sistemas de gestión (CRM) y automatización con inteligencia artificial.`,
+};
 // Agrandar logos que se ven chicos (1 = tamaño normal, 2 = el doble)
 const LOGO_ZOOM = {
   "Donata del Desierto": 2.5,
