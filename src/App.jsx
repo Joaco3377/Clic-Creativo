@@ -382,7 +382,7 @@ function NosotrasPreview({ go }) {
       <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }} className="grid-2">
         <div>
           <RevealTitle color="#EDE5D8" eyebrowText="quiénes somos" eyebrowColor="#123C4D">
-            Dos comunicadoras obsesionadas con que tu marca conecte
+           El equipo detrás de cada clic
           </RevealTitle>
           <p style={{
             fontSize: 18, lineHeight: 1.6, marginTop: 24, maxWidth: 520,
