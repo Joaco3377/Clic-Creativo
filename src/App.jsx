@@ -426,15 +426,14 @@ function Concepto() {
 
 En Clic Creativo trabajamos para que ese momento suceda. Combinamos estrategia, creatividad y producción profesional para construir marcas sólidas, reconocibles y capaces de generar resultados reales.
 
-Tu marca tiene mucho para comunicar. <span style={{ color: "#F0743A" }}>Hacé el clic.</span> .
+Tu marca tiene mucho para comunicar. <span style={{ color: "#F0743A" }}>Hacé el clic.</span> 
         </p>
         <p style={{
           fontSize: 17, lineHeight: 1.65, marginTop: 28, opacity: seen ? .8 : 0, maxWidth: 640, margin: "28px auto 0",
           transform: seen ? "none" : "translateY(16px)",
           transition: "opacity .7s ease .4s, transform .7s ease .4s",
         }}>
-          Ese instante es nuestro territorio. Movimiento y conexión, precisión y chispa.
-          Esa doble lectura es el corazón de lo que hacemos.
+
         </p>
       </div>
     </section>
