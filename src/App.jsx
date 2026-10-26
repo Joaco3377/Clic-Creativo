@@ -422,8 +422,11 @@ function Concepto() {
           opacity: seen ? 1 : 0, transform: seen ? "none" : "translateY(20px)",
           transition: "opacity .7s ease .2s, transform .7s ease .2s",
         }}>
-          Un clic es el instante exacto en el que algo conecta: una idea que prende, un
-          contenido que detiene el scroll, una campaña que <span style={{ color: "#F0743A" }}>hace clic</span> con su público.
+          Un clic es el momento en el que algo conecta. Es el punto exacto donde una marca logra captar la atención, transmitir su valor y generar una respuesta en su público.
+
+En Clic Creativo trabajamos para que ese momento suceda. Combinamos estrategia, creatividad y producción profesional para construir marcas sólidas, reconocibles y capaces de generar resultados reales.
+
+Tu marca tiene mucho para comunicar. <span style={{ color: "#F0743A" }}>Hacé el clic.</span> .
         </p>
         <p style={{
           fontSize: 17, lineHeight: 1.65, marginTop: 28, opacity: seen ? .8 : 0, maxWidth: 640, margin: "28px auto 0",
