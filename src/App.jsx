@@ -334,8 +334,10 @@ function Hero({ go }) {
       padding: "0 clamp(18px,6vw,90px)", background: "#EDE5D8", position: "relative", overflow: "hidden",
     }}>
       {/* marca de agua: logo gigante */}
-            <div style={{ position: "absolute", right: "3%", top: "50%", transform: "translateY(-50%)", opacity: on ? .9 : 0, transition: "opacity 1.2s ease .4s" }}>
-        <LogoClic size={560} split={0} colorL="#123C4D" colorR="#F0743A" />
+                  <div style={{ position: "absolute", right: "3%", top: "50%", transform: "translateY(-50%)", opacity: on ? .9 : 0, transition: "opacity 1.2s ease .4s", perspective: "1000px" }}>
+        <div className="tilt3d">
+          <LogoClic size={560} split={0} colorL="#123C4D" colorR="#F0743A" />
+        </div>
       </div>
       <div style={{ position: "relative", maxWidth: 1100 }}>
         <p style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 600, fontSize: 15, letterSpacing: ".22em", textTransform: "uppercase", color: "#F0743A", marginBottom: 20, ...step(0.1) }}>
