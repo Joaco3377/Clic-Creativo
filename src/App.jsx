@@ -1243,6 +1243,8 @@ function StyleTag() {
       body { margin: 0; }
       html { scroll-behavior: smooth; }
       @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+            @keyframes tilt3d { 0%,100% { transform: rotateX(18deg) rotateY(-26deg); } 50% { transform: rotateX(-16deg) rotateY(26deg); } }
+      .tilt3d { animation: tilt3d 6s ease-in-out infinite; transform-style: preserve-3d; }
       @keyframes marqueeRight {
         0% { transform: translateX(-50%); }
         100% { transform: translateX(0); }
