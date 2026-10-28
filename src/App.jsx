@@ -933,9 +933,7 @@ const LOGO_ZOOM = {
 };
 
 // Fondo especial para logos blancos
-const LOGO_FONDO = { "Doble Pe": "#123C4D",
-  "Session Pro": "#123C4D",
-  "Parador Corona": "#123C4D",
+const LOGO_FONDO = { 
 };
 
 const LOGO_EXTS = ["", ".png", ".jpg", ".jpeg", ".svg", ".webp", ".PNG", ".JPG", ".JPEG"];
