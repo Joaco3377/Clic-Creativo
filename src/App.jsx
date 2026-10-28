@@ -160,6 +160,7 @@ const CLIENTS = [
   "Plug & Play", "Wabi Sabi", "Belle Pur", "Aurae Centro Holístico",
   "Session Pro", "Quintana House", "Black Pear", "Beable",
   "GR Consultora", "Nutricionista Gabriela Badías", "Doble Pe", "Agencia LJ",
+  "RETO Fuera de Ruta", "Sumar Ingeniería",
 ];
 
 const TESTIMONIALS = [
@@ -848,34 +849,34 @@ function ClientesGrid() {
 
 // Nombre del cliente → nombre del archivo en /public
 const CLIENT_LOGOS = {
-  "Donata del Desierto": "Donata del Desierto. Png",
-  "Punto Donata": "Punto Donata",
-  "La Vereda Donata": "La Vereda Donata",
-  "Refugio Donata": "Refugio Donata. png",
-  "Club Andino Mercedario": "CAM",
-  "Coldwell Banker Impacto Pro": "CB Impacto Pro",
-  "Seis Luces": "Seis luces png",
-  "El Retorno": "El retorno",
-  "Jarana Sanguchería": "Jarana. PNG",
-  "Andalué": "Andalue. png",
-  "Vasco Pescadería": "Vasco",
+  "Donata del Desierto": "donata-desierto",
+  "Punto Donata": "punto-donata",
+  "La Vereda Donata": "la-vereda",
+  "Refugio Donata": "refugio-donata",
+  "Club Andino Mercedario": "cam",
+  "Coldwell Banker Impacto Pro": "coldwell-banker",
+  "Seis Luces": "seis-luces",
+  "El Retorno": "el-retorno",
+  "Jarana Sanguchería": "jarana",
+  "Andalué": "andalue",
+  "Vasco Pescadería": "vasco",
   "INAR Energía Solar": "inar",
-  "Parador Corona": "Parador",
-  "ARG Carpas": "ARG",
-  "GEG Servicios": "GEG",
-  "Peñón del Águila": "penon-del-aguila",
-  "Plug & Play": "Plug & Play. png",
-  "Wabi Sabi": "Wabi",
-  "Belle Pur": "Belle pur",
-  "Aurae Centro Holístico": "Aurae",
-  "Session Pro": "Session Pro",
-  "Quintana House": "Quintana House",
-  "Black Pear": "Black Pear. PNG",
-  "Beable": "BeAble .png",
-  "GR Consultora": "GR Consultora. Png",
-  "Nutricionista Gabriela Badías": "Gabriela Badias",
+  "Parador Corona": "parador",
+  "ARG Carpas": "arg",
+  "GEG Servicios": "geg",
+  "Peñón del Águila": "penon-aguila",
+  "Plug & Play": "plug-play",
+  "Belle Pur": "belle-pur",
+  "Aurae Centro Holístico": "aurae",
+  "Session Pro": "session",
+  "Quintana House": "quintana-house",
+  "Black Pear": "black-pear",
+  "Beable": "beable",
+  "GR Consultora": "gr-consultora",
   "Doble Pe": "doble-pe",
-  "Agencia LJ": "L&J",
+  "Agencia LJ": "agencia-lj",
+  "RETO Fuera de Ruta": "reto-fuera-ruta",
+  "Sumar Ingeniería": "sumar-ingenieria",
 };
 // Descripción de cada cliente (se muestra al tocar el logo). Texto entre acentos graves ` `.
 const CLIENT_INFO = {
@@ -906,7 +907,8 @@ const CLIENT_INFO = {
   "GR Consultora": `Consultora enfocada en la gestión del talento humano. Selección de personal, reclutamiento y asesoramiento en recursos humanos para optimizar equipos de trabajo.`,
   "Nutricionista Gabriela Badías": `Solución integral de alimentación saludable en San Juan. Combina la consulta nutricional profesional con planes alimenticios personalizados y la entrega de viandas a domicilio.`,
   "Doble Pe": `Empresa de Villa La Angostura especializada en trabajos en altura, limpieza de vidrios y colocación de sistemas de anclaje, con foco en seguridad, precisión y soluciones profesionales.`,
-  "Agencia LJ": `Agencia de marketing digital con presencia en Mendoza y Miami, especializada en potenciar las ventas de sus clientes mediante publicidad online, sistemas de gestión (CRM) y automatización con inteligencia artificial.`,
+  "Agencia LJ": `Agencia de marketing digital con presencia en Mendoza y Miami, especializada en potenciar las ventas de sus clientes mediante publicidad online, sistemas de gestión (CRM) y automatización con inteligencia artificial.`,   "Sumar Ingeniería": `Agrupación de la Facultad de Ingeniería de la Universidad Nacional de San Juan.`,
+  "RETO Fuera de Ruta": `Propuesta vinculada al off-road y las travesías 4x4 en San Juan.`,
 };
 // Agrandar logos que se ven chicos (1 = tamaño normal, 2 = el doble)
 const LOGO_ZOOM = {
@@ -931,7 +933,9 @@ const LOGO_ZOOM = {
 };
 
 // Fondo especial para logos blancos
-const LOGO_FONDO = {
+const LOGO_FONDO = { "Doble Pe": "#123C4D",
+  "Session Pro": "#123C4D",
+  "Parador Corona": "#123C4D",
 };
 
 const LOGO_EXTS = ["", ".png", ".jpg", ".jpeg", ".svg", ".webp", ".PNG", ".JPG", ".JPEG"];
