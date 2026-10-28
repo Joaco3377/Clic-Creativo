@@ -991,7 +991,7 @@ function ClientLogo({ c, i }) {
       </div>
       {open && (
         <div onClick={() => setOpen(false)} style={{ position: "fixed", inset: 0, background: "rgba(18,60,77,.6)", display: "flex", alignItems: "center", justifyContent: "center", padding: 20, zIndex: 100 }}>
-          <div onClick={(e) => e.stopPropagation()} style={{ background: "#EDE5D8", borderRadius: 20, maxWidth: 460, width: "100%", padding: 32, position: "relative", textAlign: "left" }}>
+                    <div onClick={(e) => e.stopPropagation()} style={{ background: "#EDE5D8", borderRadius: 20, maxWidth: 460, width: "100%", maxHeight: "85vh", overflowY: "auto", padding: 32, position: "relative", textAlign: "left" }}>
             <button onClick={() => setOpen(false)} style={{ position: "absolute", top: 14, right: 18, border: "none", background: "transparent", fontSize: 26, cursor: "pointer", color: "#123C4D", lineHeight: 1 }}>×</button>
             <div style={{ height: 70, marginBottom: 18, display: "flex", alignItems: "center", overflow: "hidden" }}>
               <LogoImagen c={c} maxW={130} maxH={70} />
