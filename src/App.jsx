@@ -513,7 +513,7 @@ function CintaLogo({ c }) {
   return (
     <div style={{
       flexShrink: 0, width: 170, height: 90, borderRadius: 14, overflow: "hidden", marginRight: 24,
-      background: LOGO_FONDO[c] || "#FFFFFF", border: "1.5px solid rgba(18,60,77,.12)",
+      background: LOGO_FONDO[c] || "#EDE5D8", border: "1.5px solid rgba(18,60,77,.12)",
       display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center",
       padding: "0 16px", color: "#123C4D",
       fontFamily: "'Poppins',sans-serif", fontWeight: 600, fontSize: 14,
