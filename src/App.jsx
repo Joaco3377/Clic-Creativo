@@ -912,24 +912,6 @@ const CLIENT_INFO = {
 };
 // Agrandar logos que se ven chicos (1 = tamaño normal, 2 = el doble)
 const LOGO_ZOOM = {
-  "Donata del Desierto": 2.5,
-  "Punto Donata": 2.5,
-  "Refugio Donata": 1.8,
-  "Club Andino Mercedario": 1.4,
-  "Coldwell Banker Impacto Pro": 2.1,
-  "El Retorno": 2.5,
-  "Andalué": 1.4,
-  "Vasco Pescadería": 2,
-  "INAR Energía Solar": 2,
-  "Parador Corona": 1.4,
-  "ARG Carpas": 1.8,
-  "GEG Servicios": 2,
-  "Plug & Play": 2,
-  "Wabi Sabi": 2,
-  "Belle Pur": 2.2,
-  "Aurae Centro Holístico": 1.8,
-  "Quintana House": 1.5,
-  "Peñón del Águila": 3,
 };
 
 // Fondo especial para logos blancos
