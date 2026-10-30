@@ -501,7 +501,7 @@ function ServiceCard({ s, i }) {
             ? `opacity .5s ease ${(i % 3) * 0.12}s, transform .7s cubic-bezier(.2,1.8,.4,1) ${(i % 3) * 0.12}s`
             : "opacity .5s ease, transform .7s cubic-bezier(.2,1.8,.4,1)",
         boxShadow: hov ? "0 18px 40px -18px rgba(18,60,77,.5)" : "none",
-      }
+      }}
     >
       <div style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 800, fontSize: 15, color: palette.accent, letterSpacing: ".1em" }}>{s.n}</div>
             <h3 style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 700, fontSize: 23, margin: "10px 0 12px", lineHeight: 1.15 }}>{s.t}</h3>
