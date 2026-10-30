@@ -493,15 +493,15 @@ function ServiceCard({ s, i }) {
         display: "flex", flexDirection: "column",
         opacity: seen ? 1 : 0,
         transform: seen
-          ? (hov ? "translateY(-6px) scale(1)" : "none")
-          : (primeros ? "translateY(90px) scale(.9)" : "translateY(34px) scale(.97)"),
+          ? (hov ? "translateY(-8px) scale(1.02)" : "none")
+          : (primeros ? "translateY(130px) scale(.8)" : "translateY(80px) scale(.85)"),
         transition: primeros && !entro
-          ? `opacity .8s ease ${demora}s, transform 1s cubic-bezier(.34,1.56,.64,1) ${demora}s`
+          ? `opacity .5s ease ${demora}s, transform .9s cubic-bezier(.2,1.8,.4,1) ${demora}s`
           : seen
-            ? `opacity .6s ease ${(i % 3) * 0.1}s, transform .35s ease`
-            : "opacity .6s ease, transform .6s ease",
+            ? `opacity .5s ease ${(i % 3) * 0.12}s, transform .7s cubic-bezier(.2,1.8,.4,1) ${(i % 3) * 0.12}s`
+            : "opacity .5s ease, transform .7s cubic-bezier(.2,1.8,.4,1)",,
         boxShadow: hov ? "0 18px 40px -18px rgba(18,60,77,.5)" : "none",
-      }}
+      }
     >
       <div style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 800, fontSize: 15, color: palette.accent, letterSpacing: ".1em" }}>{s.n}</div>
             <h3 style={{ fontFamily: "'Poppins',sans-serif", fontWeight: 700, fontSize: 23, margin: "10px 0 12px", lineHeight: 1.15 }}>{s.t}</h3>
