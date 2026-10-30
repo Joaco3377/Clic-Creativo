@@ -499,7 +499,7 @@ function ServiceCard({ s, i }) {
           ? `opacity .5s ease ${demora}s, transform .9s cubic-bezier(.2,1.8,.4,1) ${demora}s`
           : seen
             ? `opacity .5s ease ${(i % 3) * 0.12}s, transform .7s cubic-bezier(.2,1.8,.4,1) ${(i % 3) * 0.12}s`
-            : "opacity .5s ease, transform .7s cubic-bezier(.2,1.8,.4,1)",,
+            : "opacity .5s ease, transform .7s cubic-bezier(.2,1.8,.4,1)",
         boxShadow: hov ? "0 18px 40px -18px rgba(18,60,77,.5)" : "none",
       }
     >
