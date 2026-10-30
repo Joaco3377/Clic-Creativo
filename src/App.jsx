@@ -1090,9 +1090,9 @@ function NosotrosHistoria() {
 
 const FOUNDER_BIOS = {
   "Candela Coll": {
-    quien: "[De dónde es, qué estudió, cómo arrancó en comunicación.]",
-    agencia: "[Qué lidera en la agencia y cómo trabaja.]",
-    fuera: "[Hobbies, intereses, algo que la humanice.]",
+    quien: "Estudio Comunicación Social en la Universidad Nacional de San Juan. Desde chica, me apasionan el marketing y la publicidad, y siempre me fascinó cómo las marcas logran emocionar, conectar con las personas y quedarse en su memoria. Hoy sueño con estar detrás de una de esas marcas que todos recuerdan",
+    agencia: "Lidero la estrategia y la comunicación de cada marca. Combino creatividad y análisis para encontrar qué hace única a cada empresa, potenciar su diferencial y construir una identidad propia que la ayude a crecer",
+    fuera: "Disfruto de las nuevas aventuras, viajar, sacar fotos y descubrir lugares. Me encanta compartir tiempo con mis seres queridos y convertir cada experiencia en un recuerdo",
   },
   "Clara Avellaneda": {
     quien: "[De dónde es, qué estudió, cómo arrancó en contenido y producción.]",
