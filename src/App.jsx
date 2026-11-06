@@ -908,7 +908,8 @@ const CLIENT_INFO = {
   "Nutricionista Gabriela Badías": `Solución integral de alimentación saludable en San Juan. Combina la consulta nutricional profesional con planes alimenticios personalizados y la entrega de viandas a domicilio.`,
   "Doble Pe": `Empresa de Villa La Angostura especializada en trabajos en altura, limpieza de vidrios y colocación de sistemas de anclaje, con foco en seguridad, precisión y soluciones profesionales.`,
   "Agencia LJ": `Agencia de marketing digital con presencia en Mendoza y Miami, especializada en potenciar las ventas de sus clientes mediante publicidad online, sistemas de gestión (CRM) y automatización con inteligencia artificial.`,   "Sumar Ingeniería": `Agrupación de la Facultad de Ingeniería de la Universidad Nacional de San Juan.`,
-  "RETO Fuera de Ruta": `Propuesta vinculada al off-road y las travesías 4x4 en San Juan.`,
+  "RETO Fuera de Ruta": `Propuesta de experiencias 4x4 en San Juan que invita a descubrir paisajes y rincones de la provincia a través de recorridos todoterreno. Ofrece aventuras únicas para disfrutar en familia o con amigos, combinando naturaleza, adrenalina y turismo en experiencias fuera de lo convencional.
+`,
 };
 // Agrandar logos que se ven chicos (1 = tamaño normal, 2 = el doble)
 const LOGO_ZOOM = {
