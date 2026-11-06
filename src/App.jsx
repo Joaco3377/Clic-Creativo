@@ -877,6 +877,7 @@ const CLIENT_LOGOS = {
   "Agencia LJ": "agencia-lj",
   "RETO Fuera de Ruta": "reto-fuera-ruta",
   "Sumar Ingeniería": "sumar-ingenieria",
+  "Wabi Sabi": "wabi.png", 
 };
 // Descripción de cada cliente (se muestra al tocar el logo). Texto entre acentos graves ` `.
 const CLIENT_INFO = {
