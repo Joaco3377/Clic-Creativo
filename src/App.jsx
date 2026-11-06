@@ -1078,8 +1078,7 @@ const FOUNDER_BIOS = {
     fuera: "Disfruto de las nuevas aventuras, viajar, sacar fotos y descubrir lugares. Me encanta compartir tiempo con mis seres queridos y convertir cada experiencia en un recuerdo",
   },
   "Clara Avellaneda": {
-    quien: "Soy de San Juan y actualmente estoy estudiando la carrera de Comunicación Social en la Universidad Nacional de San Juan. Desde chica me apasiona la actuación y, a partir de ahí, fui desarrollando el gusto por la comunicación en distintos formatos y formas de expresión. Me considero una persona creativa, curiosa y resolutiva, siempre con ganas de aprender y probar cosas nuevas.
-",
+    quien: "Soy de San Juan y actualmente estoy estudiando la carrera de Comunicación Social en la Universidad Nacional de San Juan. Desde chica me apasiona la actuación y, a partir de ahí, fui desarrollando el gusto por la comunicación en distintos formatos y formas de expresión. Me considero una persona creativa, curiosa y resolutiva, siempre con ganas de aprender y probar cosas nuevas",
     agencia: "Lidero la producción y el contenido de cada marca. Me encargo de desarrollar piezas fotográficas y audiovisuales, además de realizar coberturas de eventos. Me gusta transformar ideas en contenido que transmita la esencia de cada marca, cuidando tanto lo visual como los detalles",
     fuera: "Me encanta la montaña y compartir tiempo con mis amigos. También disfruto de la actuación y de tomar clases de comedia musical, espacios que me permiten seguir explorando mi lado creativo",
   },
